@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="NLog" Version="5.1.4" />
+		<PackageReference Include="NLog.Web.AspNetCore" Version="5.2.3" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.18.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Auth\Note.Auth.csproj" />
+		<ProjectReference Include="..\Infrastructure.Migrations\Note.Infrastructure.Migrations.csproj" />
+		<ProjectReference Include="..\Infrastructure\Note.Infrastructure.csproj" />
+		<ProjectReference Include="..\Application\Note.Application.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="NLog.config" CopyToPublishDirectory="Never" />
+		<Content Update="appsettings*.json" CopyToPublishDirectory="Never" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<SourceLogConfigFile>NLog.config.template</SourceLogConfigFile>
+		<TargetLogConfigFile>NLog.config</TargetLogConfigFile>
+		<SourceAppSettingsConfigFile>appsettings.json.template</SourceAppSettingsConfigFile>
+		<TargetAppSettingsConfigFile>appsettings.json</TargetAppSettingsConfigFile>
+	</PropertyGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Copy SourceFiles="$(SourceLogConfigFile)" DestinationFiles="$(TargetLogConfigFile)" Condition="!Exists($(TargetLogConfigFile))" />
+		<Copy SourceFiles="$(SourceAppSettingsConfigFile)" DestinationFiles="$(TargetAppSettingsConfigFile)" Condition="!Exists($(TargetAppSettingsConfigFile))" />
+	</Target>
+
+</Project>

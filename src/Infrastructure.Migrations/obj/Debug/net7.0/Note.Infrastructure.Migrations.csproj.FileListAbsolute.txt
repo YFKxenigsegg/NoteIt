@@ -1,0 +1,12 @@
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\bin\Debug\net7.0\Note.Infrastructure.Migrations.deps.json
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\bin\Debug\net7.0\Note.Infrastructure.Migrations.dll
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\bin\Debug\net7.0\Note.Infrastructure.Migrations.pdb
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.csproj.AssemblyReference.cache
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.AssemblyInfoInputs.cache
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.AssemblyInfo.cs
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.csproj.CoreCompileInputs.cache
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.dll
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\refint\Note.Infrastructure.Migrations.dll
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\Note.Infrastructure.Migrations.pdb
+D:\Work\Mirfin\Project\backofficeCore\src\Infrastructure.Migrations\obj\Debug\net7.0\ref\Note.Infrastructure.Migrations.dll
