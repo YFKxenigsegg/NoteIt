@@ -10254,6 +10254,8 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoFixture >= 4.18.0",
+      "Microsoft.EntityFrameworkCore >= 7.0.5",
+      "Microsoft.EntityFrameworkCore.InMemory >= 7.0.5",
       "Microsoft.NET.Test.Sdk >= 17.6.0",
       "Moq >= 4.18.4",
       "Note.Application >= 1.0.0",
@@ -10308,6 +10310,14 @@
           "AutoFixture": {
             "target": "Package",
             "version": "[4.18.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[7.0.5, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
