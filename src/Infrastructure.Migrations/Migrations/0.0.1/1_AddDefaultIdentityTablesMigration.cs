@@ -26,7 +26,8 @@ public class AddDefaultIdentityTablesMigration : Migration
         Create.Table("AspNetUsers")
             .WithColumn("Id").AsFixedLengthString(36).NotNullable()
                 .PrimaryKey("PK_AspNetUsers_Id")
-            .WithColumn("Email").AsString(24).NotNullable().Unique("IX_AspNetUsers_Email")
+            .WithColumn("Email").AsString(24).NotNullable()
+                .Unique("IX_AspNetUsers_Email")
             .WithColumn("PasswordHash").AsString(96).NotNullable()
             .WithColumn("Created").AsDateTime().NotNullable()
             .WithColumn("LastAccess").AsDateTime().Nullable()
@@ -71,7 +72,7 @@ public class AddDefaultIdentityTablesMigration : Migration
             .WithColumn("Name").AsString(450).NotNullable()
             .WithColumn("Value").AsString().Nullable();
 
-        Create.PrimaryKey("PK_AspNetUserRoles_UserId_LoginProvider_Name")
+        Create.PrimaryKey("PK_AspNetUserTokens_UserId_LoginProvider_Name")
             .OnTable("AspNetUserTokens").Columns("UserId", "LoginProvider", "Name");
     }
 
