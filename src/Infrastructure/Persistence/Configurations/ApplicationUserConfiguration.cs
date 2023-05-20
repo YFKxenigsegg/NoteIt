@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Note.Domain.Entities;
 
 namespace Note.Infrastructure.Persistence.Configurations;
-public class UserConfiguration : IEntityTypeConfiguration<UserLogin>
+public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
 {
-    public void Configure(EntityTypeBuilder<UserLogin> builder)
+    public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
         builder.HasKey(x => x.Id);
 
@@ -24,21 +24,6 @@ public class UserConfiguration : IEntityTypeConfiguration<UserLogin>
             .HasColumnType("nvarchar")
             .IsRequired()
             .HasMaxLength(96);
-
-        builder.Property(x => x.PhoneNumber)
-            .HasColumnType("nvarchar")
-            .IsRequired()
-            .HasMaxLength(16);
-
-        builder.Property(x => x.FirstName)
-            .HasColumnType("nvarchar")
-            .IsRequired()
-            .HasMaxLength(256);
-
-        builder.Property(x => x.LastName)
-            .HasColumnType("nvarchar")
-            .IsRequired()
-            .HasMaxLength(256);
 
         builder.Property(x => x.Created)
             .HasColumnType("datetime")
@@ -69,5 +54,6 @@ public class UserConfiguration : IEntityTypeConfiguration<UserLogin>
         builder.Ignore(x => x.SecurityStamp);
         builder.Ignore(x => x.TwoFactorEnabled);
         builder.Ignore(x => x.UserName);
+        builder.Ignore(x => x.PhoneNumber);
     }
 }

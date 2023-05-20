@@ -2,9 +2,9 @@
 
 namespace Note.Infrastructure.Migrations;
 [AttributeUsage(AttributeTargets.Class)]
-public class CustomMigrationAttribute : MigrationAttribute
+public class VersionedMigrationAttribute : MigrationAttribute
 {
-    public CustomMigrationAttribute(int major, int minor, int patch, int number, string description)
+    public VersionedMigrationAttribute(int major, int minor, int patch, int number, string description)
         : base(CalculateValue(major, minor, patch, number), description) { }
 
     private static long CalculateValue(int major, int minor, int patch, int number)

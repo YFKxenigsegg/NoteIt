@@ -22,7 +22,7 @@ public class GetHandler : IRequestHandler<GetRequest, RoleInfo>
     {
         var identifier = request.Id ?? request.Name;
 
-        var result = await _dbContext.Set<UserRole>()
+        var result = await _dbContext.Set<ApplicationRole>()
             .ProjectTo<RoleInfo>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync(x => x.Id == identifier || x.Name == identifier, cancellationToken)
                 ?? throw new NotFoundException(request.Id == null ? $"Not found Role \'{request.Name}\'" : $"Not found Role \'{request.Id}\'");

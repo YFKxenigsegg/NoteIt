@@ -10,6 +10,7 @@ using Note.Auth.Identity;
 using Note.Infrastructure.Identity;
 using Newtonsoft.Json;
 using System.Net;
+using Note.Domain.Entities;
 
 namespace Note.Auth;
 public static class DependencyInjection
@@ -20,16 +21,16 @@ public static class DependencyInjection
         services.AddOptions();
         services.Configure<AuthOptions>(authOptionsSection);
 
-        services.AddScoped<IPasswordHasher<UserInfo>, SaltedPasswordHasher>();
+        services.AddScoped<IPasswordHasher<ApplicationUser>, SaltedPasswordHasher>();
         services.AddScoped<ILookupNormalizer, KeyNormalizer>();
 
-        services.AddIdentity<UserInfo, RoleInfo>(options =>
+        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
         {
             options.Password.RequireDigit = true;
             options.Password.RequireLowercase = true;
             options.Password.RequireNonAlphanumeric = true;
             options.Password.RequireUppercase = true;
-            options.Password.RequiredLength = 12;
+            options.Password.RequiredLength = 8;
             options.Lockout.MaxFailedAccessAttempts = 5;
         });
 
@@ -68,8 +69,9 @@ public static class DependencyInjection
                 };
             });
 
-        services.AddTransient<IUserStore<UserInfo>, UserStore>();
-        services.AddTransient<IRoleStore<RoleInfo>, RoleStore>();
+        services.AddTransient<IUserStore<ApplicationUser>, UserStore>();
+        services.AddTransient<IUserEmailStore<ApplicationUser>, UserStore>();
+        services.AddTransient<IRoleStore<ApplicationRole>, RoleStore>();
 
         return services;
     }

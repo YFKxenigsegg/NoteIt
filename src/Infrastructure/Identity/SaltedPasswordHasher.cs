@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Note.Infrastructure.Identity;
+using Note.Domain.Entities;
 
-namespace Note.Auth.Identity;
-public class SaltedPasswordHasher : PasswordHasher<UserInfo>
+namespace Note.Infrastructure.Identity;
+public class SaltedPasswordHasher : PasswordHasher<ApplicationUser>
 {
     private const string _salt = "D98EE44D-DCCE-496E-AAC6-178DA9CC3FA6";
 
-    public override string HashPassword(UserInfo user, string password)
+    public override string HashPassword(ApplicationUser user, string password)
         => CryptographyExtension.CreateHash(password + _salt);
 
     public bool Verify(string providedPassword, string hashedPassword)

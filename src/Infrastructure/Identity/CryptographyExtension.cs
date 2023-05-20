@@ -1,4 +1,4 @@
-﻿namespace Note.Auth;
+﻿namespace Note.Infrastructure.Identity;
 public static class CryptographyExtension
 {
     public static string CreateHash(string input)

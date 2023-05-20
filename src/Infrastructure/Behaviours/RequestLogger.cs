@@ -6,7 +6,7 @@ namespace Note.Infrastructure.Behaviours;
 public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     where TRequest : notnull
 {
-    private readonly ILogger _logger;
+    private readonly ILogger<TRequest> _logger;
 
     public RequestLogger(ILogger<TRequest> logger)
         => _logger = logger;

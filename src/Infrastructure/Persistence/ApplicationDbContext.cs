@@ -1,15 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Note.Domain.Entities;
 using Note.Infrastructure.Persistence.Interceptors;
 using System.Reflection;
 
 namespace Note.Infrastructure.Persistence;
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
 {
     private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
-
-    public DbSet<UserLogin> Users { get; set; }
-    public DbSet<UserRole> Roles { get; set; }
 
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options

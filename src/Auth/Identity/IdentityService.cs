@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Note.Application.Models;
+using Note.Domain.Entities;
 
 namespace Note.Auth.Identity;
 public class IdentityService : IIdentityService

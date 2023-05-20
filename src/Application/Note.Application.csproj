@@ -22,7 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Account\" />
 		<Folder Include="Users\Contractors\" />
 		<Folder Include="Users\Customers\" />
 	</ItemGroup>

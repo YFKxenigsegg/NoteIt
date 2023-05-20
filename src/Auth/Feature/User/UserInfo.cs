@@ -2,7 +2,7 @@
 using Note.Infrastructure.Mappings;
 
 namespace Note.Infrastructure.Identity;
-public class UserInfo : IMapFrom<UserLogin>
+public class UserInfo : IMapFrom<ApplicationUser>
 {
     public string Id { get; set; } = default!;
     public string Email { get; set; } = default!;

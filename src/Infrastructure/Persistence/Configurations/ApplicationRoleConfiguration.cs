@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Note.Domain.Entities;
 
 namespace Note.Infrastructure.Persistence.Configurations;
-public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
+public class ApplicationRoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
 {
-    public void Configure(EntityTypeBuilder<UserRole> builder)
+    public void Configure(EntityTypeBuilder<ApplicationRole> builder)
     {
         builder.HasKey(x => x.Id);
 

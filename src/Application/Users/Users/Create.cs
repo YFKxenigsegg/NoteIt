@@ -16,9 +16,9 @@ public class CreateHandler : IRequestHandler<CreateRequest, string>
 
     public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
-        var user = _mapper.Map<UserLogin>(request);
+        var user = _mapper.Map<ApplicationUser>(request);
 
-        await _dbContext.Set<UserLogin>().AddAsync(user, cancellationToken);
+        await _dbContext.Set<ApplicationUser>().AddAsync(user, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         return user.Id;

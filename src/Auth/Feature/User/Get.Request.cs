@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using Note.Infrastructure.Identity;
+using Note.Domain.Entities;
 
 namespace Note.Auth.Feature.User;
-public class GetRequest : IRequest<UserInfo>
+public class GetRequest : IRequest<ApplicationUser>
 {
     public string? Id { get; set; }
     public string? Email { get; set; }
