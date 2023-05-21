@@ -29,6 +29,10 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
             .HasColumnType("datetime")
             .IsRequired();
 
+        builder.Property(x => x.Modified)
+            .HasColumnType("datetime")
+            .IsRequired(false);
+
         builder.Property(x => x.LastAccess)
             .HasColumnType("datetime")
             .IsRequired(false);

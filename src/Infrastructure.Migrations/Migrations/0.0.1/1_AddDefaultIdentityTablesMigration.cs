@@ -30,6 +30,7 @@ public class AddDefaultIdentityTablesMigration : Migration
                 .Unique("IX_AspNetUsers_Email")
             .WithColumn("PasswordHash").AsString(96).NotNullable()
             .WithColumn("Created").AsDateTime().NotNullable()
+            .WithColumn("Modified").AsDateTime().Nullable()
             .WithColumn("LastAccess").AsDateTime().Nullable()
             .WithColumn("RoleId").AsFixedLengthString(36).NotNullable()
                 .ForeignKey("FK_AspNetUsers_AspNetRoles_RoleId", "AspNetRoles", "Id").OnDelete(Rule.Cascade)
