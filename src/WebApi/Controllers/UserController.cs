@@ -4,7 +4,7 @@ using Note.WebApi.Common;
 
 namespace Note.WebApi.Controllers;
 
-public class UsersController : ApiControllerBase
+public class UserController : ApiControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> CreateUser(CreateRequest request, CancellationToken cancellationToken)
