@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Net;
 
 namespace Note.Infrastructure.Exceptions.Filter;
 public class ApiExceptionFilter : ExceptionFilterAttribute
@@ -14,7 +15,8 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
             { typeof(AuthenticationException), HandlerAuthenticationException },
             { typeof(NotFoundException), HandleNotFoundException },
             { typeof(AlreadyExistException), HandleAlreadyExistException },
-            { typeof(ValidationException), HandleValidationException }
+            { typeof(ValidationException), HandleValidationException },
+            { typeof(ExceptionBase), HandleExceptionBse }
         };
     }
 
@@ -84,6 +86,43 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
         };
         context.Result = new BadRequestObjectResult(details);
         context.ExceptionHandled = true;
+    }
+
+    private void HandleExceptionBse(ExceptionContext context)
+    {
+        var exception = context.Exception as ExceptionBase;
+        ProblemDetails details;
+        switch (exception?.StatusCode)
+        {
+            case HttpStatusCode.NotFound:
+                details = new()
+                {
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+                    Title = "The specified resource was not found.",
+                    Detail = exception.Message
+                };
+                context.Result = new NotFoundObjectResult(details);
+                context.ExceptionHandled = true;
+                break;
+            case HttpStatusCode.BadRequest:
+                details = new()
+                {
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+                    Detail = exception.Message
+                };
+                context.Result = new BadRequestObjectResult(details);
+                context.ExceptionHandled = true;
+                break;
+            case HttpStatusCode.Forbidden:
+                details = new()
+                {
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+                    Detail = exception.Message
+                };
+                context.Result = new ObjectResult(details);
+                context.ExceptionHandled = true;
+                break;
+        }
     }
 
     private void UnknownExceptionHander(ExceptionContext context)
