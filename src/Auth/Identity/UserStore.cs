@@ -2,12 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Note.Application.Role;
-using Note.Application.Users.Users;
 using Note.Auth.Feature.User;
 using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Identity;
 using Note.Infrastructure.Persistence;
 
 namespace Note.Auth.Identity;
@@ -41,7 +38,7 @@ public class UserStore :
 
         try
         {
-            await _mediator.Send(new Application.Users.Users.CreateRequest { Email = user.Email });
+            await _mediator.Send(new Application.Users.Create.CreateRequest { Email = user.Email });
         }
         catch (Exception ex)
         {
