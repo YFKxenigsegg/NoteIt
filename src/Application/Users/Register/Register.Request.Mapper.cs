@@ -8,7 +8,7 @@ public partial class RegisterRequest
     public void Mapping(Profile profile)
     {
         profile.CreateMap<RegisterRequest, ApplicationUser>()
-            .ForMember(dest => dest.Created, opt => opt.MapFrom(src => DateTime.UtcNow)) //interceptor not working
+            .ForMember(dest => dest.Created, opt => opt.MapFrom(src => DateTime.UtcNow))
             .AfterMap<SetPasswordHashAction>();
     }
 }

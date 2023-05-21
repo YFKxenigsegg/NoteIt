@@ -11,9 +11,10 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
     {
         _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
         {
-            { typeof(AuthenticationException), HandlerAuthorizeException },
+            { typeof(AuthenticationException), HandlerAuthenticationException },
             { typeof(NotFoundException), HandleNotFoundException },
-            { typeof(RegistrationException), HandleRegistrationException }
+            { typeof(RegistrationException), HandleRegistrationException },
+            { typeof(ValidationException), HandleValidationException }
         };
     }
 
@@ -35,7 +36,7 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
         UnknownExceptionHander(context);
     }
 
-    private void HandlerAuthorizeException(ExceptionContext context)
+    private void HandlerAuthenticationException(ExceptionContext context)
     {
         var exception = context.Exception as AuthenticationException;
         var details = new ProblemDetails()
@@ -69,6 +70,17 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
             Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1",
             Title = "Server cannot not process the request.",
             Detail = exception!.Message
+        };
+        context.Result = new BadRequestObjectResult(details);
+        context.ExceptionHandled = true;
+    }
+
+    private void HandleValidationException(ExceptionContext context)
+    {
+        var exception = context.Exception as ValidationException;
+        var details = new ValidationProblemDetails(exception!.Errors)
+        {
+            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
         };
         context.Result = new BadRequestObjectResult(details);
         context.ExceptionHandled = true;

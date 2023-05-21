@@ -10,6 +10,7 @@ using NLog;
 using NLog.Web;
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using FluentValidation.AspNetCore;
 
 var _logger = NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
 _logger.Debug("init main");
@@ -28,7 +29,9 @@ try
         builder.Services.AddControllers(optons =>
             optons.Filters.Add(new ApiExceptionFilter()));
 
-        builder.Services.AddMediatR(config => 
+        builder.Services.AddFluentValidationAutoValidation();
+
+        builder.Services.AddMediatR(config =>
             config.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()
                 .Where(x => x.FullName != null && x.FullName.Contains("Note")).ToArray()));
 
