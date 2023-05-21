@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Note.Domain.Entities;
+using Note.Infrastructure.Exceptions;
 using Note.Infrastructure.Persistence;
 
-namespace Note.Application.Role;
+namespace Note.Application.Role.Create;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly ApplicationDbContext _dbContext;
@@ -16,9 +18,12 @@ public class CreateHandler : IRequestHandler<CreateRequest, string>
 
     public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
+        if (await _dbContext.Roles.AnyAsync(x => x.Name == request.Name, cancellationToken))
+            throw new AlreadyExistException($"Role with \'{request.Name}\' already exist.");
+
         var role = _mapper.Map<ApplicationRole>(request);
 
-        await _dbContext.Set<ApplicationRole>().AddAsync(role, cancellationToken);
+        await _dbContext.Roles.AddAsync(role, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         return role.Id;

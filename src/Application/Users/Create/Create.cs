@@ -18,17 +18,16 @@ public class CreateHandler : IRequestHandler<CreateRequest, string>
 
     public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken);
+        if (await _dbContext.Users.AnyAsync(x => x.Email == request.Email, cancellationToken))
+            throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
 
-        if (user != null) throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
-
-        var applicationUser = _mapper.Map<ApplicationUser>(request);
-        applicationUser.RoleId = (await _dbContext.Roles.FirstOrDefaultAsync(x => x.Name == request.RoleName, cancellationToken))?.Id
+        var user = _mapper.Map<ApplicationUser>(request);
+        user.RoleId = (await _dbContext.Roles.FirstOrDefaultAsync(x => x.Name == request.RoleName, cancellationToken))?.Id
             ?? throw new NotFoundException("Role", request.RoleName);
 
-        await _dbContext.Users.AddAsync(applicationUser, cancellationToken);
+        await _dbContext.Users.AddAsync(user, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
-        return applicationUser.Id;
+        return user.Id;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Note.Domain.Consts;
 using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
@@ -18,16 +19,15 @@ public class RegisterHandler : IRequestHandler<RegisterRequest, string>
 
     public async Task<string> Handle(RegisterRequest request, CancellationToken cancellationToken)
     {
-        var user = _dbContext.Users.FirstOrDefault(x => x.Email == request.Email);
+        if (await _dbContext.Users.AnyAsync(x => x.Email == request.Email, cancellationToken))
+            throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
 
-        if (user != null) throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
+        var user = _mapper.Map<ApplicationUser>(request);
+        user.RoleId = _dbContext.Roles.First(x => x.Name == Roles.User).Id;
 
-        var applicationUser = _mapper.Map<ApplicationUser>(request);
-        applicationUser.RoleId = _dbContext.Roles.First(x => x.Name == Roles.User).Id;
-
-        await _dbContext.Users.AddAsync(applicationUser, cancellationToken);
+        await _dbContext.Users.AddAsync(user, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
-        return applicationUser.Id;
+        return user.Id;
     }
 }
