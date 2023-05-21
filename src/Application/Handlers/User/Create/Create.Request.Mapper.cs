@@ -2,7 +2,7 @@
 using Note.Domain.Entities;
 using Note.Infrastructure.Identity;
 
-namespace Note.Application.Users.Create;
+namespace Note.Application.Handlers.User.Create;
 public partial class CreateRequest
 {
     public void Mapping(Profile profile)

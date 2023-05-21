@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 
-namespace Note.Application.Users.Register;
-public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
+namespace Note.Application.Handlers.User.Create;
+public class CreateRequestValidator : AbstractValidator<CreateRequest>
 {
-    public RegisterRequestValidator()
+    public CreateRequestValidator()
     {
         RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required.")
             .EmailAddress().WithMessage("A valid email is required.");
@@ -14,7 +14,8 @@ public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
             .Matches(@"[A-Z]+").WithMessage("Password must contain at least one uppercase letter.")
             .Matches(@"[a-z]+").WithMessage("Password must contain at least one lowercase letter.")
             .Matches(@"[0-9]+").WithMessage("Password must contain at least one number.")
-            .Matches(@"[\!\?\*\@\$\%\#\.]+").WithMessage("Password must contain at least one ('!', '?', '*', '@', '$', '%', '#' '.').")
-            .Equal(x => x.ConfirmPassword).WithMessage("Passwords must match.");
+            .Matches(@"[\!\?\*\@\$\%\#\.]+").WithMessage("Password must contain at least one ('!', '?', '*', '@', '$', '%', '#' '.').");
+
+        RuleFor(x => x.RoleName).NotEmpty().WithMessage("Role is required.");
     }
 }

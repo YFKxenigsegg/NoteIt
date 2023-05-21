@@ -5,7 +5,7 @@ using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
 using Note.Infrastructure.Persistence;
 
-namespace Note.Application.Role.Create;
+namespace Note.Application.Handlers.Role.Create;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly ApplicationDbContext _dbContext;

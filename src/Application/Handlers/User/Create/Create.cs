@@ -1,29 +1,29 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Note.Domain.Consts;
 using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
 using Note.Infrastructure.Persistence;
 
-namespace Note.Application.Users.Register;
-public class RegisterHandler : IRequestHandler<RegisterRequest, string>
+namespace Note.Application.Handlers.User.Create;
+public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public RegisterHandler(
+    public CreateHandler(
         ApplicationDbContext dbContext
         , IMapper mapper
         ) => (_dbContext, _mapper) = (dbContext, mapper);
 
-    public async Task<string> Handle(RegisterRequest request, CancellationToken cancellationToken)
+    public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
         if (await _dbContext.Users.AnyAsync(x => x.Email == request.Email, cancellationToken))
             throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
 
         var user = _mapper.Map<ApplicationUser>(request);
-        user.RoleId = _dbContext.Roles.First(x => x.Name == Roles.User).Id;
+        user.RoleId = (await _dbContext.Roles.FirstOrDefaultAsync(x => x.Name == request.RoleName, cancellationToken))?.Id
+            ?? throw new NotFoundException("Role", request.RoleName);
 
         await _dbContext.Users.AddAsync(user, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);

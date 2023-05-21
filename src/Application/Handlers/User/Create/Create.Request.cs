@@ -2,7 +2,7 @@
 using Note.Application.Mappings;
 using Note.Domain.Entities;
 
-namespace Note.Application.Users.Create;
+namespace Note.Application.Handlers.User.Create;
 public partial class CreateRequest : IRequest<string>, IMapFrom<ApplicationUser>
 {
     public string Email { get; set; } = default!;
