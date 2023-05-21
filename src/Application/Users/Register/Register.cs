@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Note.Domain.Consts;
 using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
 using Note.Infrastructure.Persistence;
 
-namespace Note.Application.Users.Users.Register;
+namespace Note.Application.Users.Register;
 public class RegisterHandler : IRequestHandler<RegisterRequest, string>
 {
     private readonly ApplicationDbContext _dbContext;
@@ -14,7 +13,6 @@ public class RegisterHandler : IRequestHandler<RegisterRequest, string>
 
     public RegisterHandler(
         ApplicationDbContext dbContext
-        , UserManager<ApplicationUser> userManager
         , IMapper mapper
         ) => (_dbContext, _mapper) = (dbContext, mapper);
 

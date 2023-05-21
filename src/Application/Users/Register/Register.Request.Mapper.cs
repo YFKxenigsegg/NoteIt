@@ -2,7 +2,7 @@
 using Note.Domain.Entities;
 using Note.Infrastructure.Identity;
 
-namespace Note.Application.Users.Users.Register;
+namespace Note.Application.Users.Register;
 public partial class RegisterRequest
 {
     public void Mapping(Profile profile)

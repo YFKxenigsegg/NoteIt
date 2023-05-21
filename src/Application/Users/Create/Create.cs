@@ -3,7 +3,7 @@ using MediatR;
 using Note.Domain.Entities;
 using Note.Infrastructure.Persistence;
 
-namespace Note.Application.Users.Users;
+namespace Note.Application.Users.Create;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly ApplicationDbContext _dbContext;

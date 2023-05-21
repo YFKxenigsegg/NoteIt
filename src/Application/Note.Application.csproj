@@ -21,9 +21,4 @@
 		<ProjectReference Include="..\Infrastructure\Note.Infrastructure.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="Users\Contractors\" />
-		<Folder Include="Users\Customers\" />
-	</ItemGroup>
-
 </Project>

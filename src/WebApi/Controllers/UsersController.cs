@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Note.Application.Users.Users;
+using Note.Application.Users.Create;
 using Note.WebApi.Common;
 
 namespace Note.WebApi.Controllers;
