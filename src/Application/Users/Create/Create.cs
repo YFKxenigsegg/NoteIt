@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Note.Domain.Entities;
+using Note.Infrastructure.Exceptions;
 using Note.Infrastructure.Persistence;
 
 namespace Note.Application.Users.Create;
@@ -16,11 +18,17 @@ public class CreateHandler : IRequestHandler<CreateRequest, string>
 
     public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
-        var user = _mapper.Map<ApplicationUser>(request);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken);
 
-        await _dbContext.Set<ApplicationUser>().AddAsync(user, cancellationToken);
+        if (user != null) throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
+
+        var applicationUser = _mapper.Map<ApplicationUser>(request);
+        applicationUser.RoleId = (await _dbContext.Roles.FirstOrDefaultAsync(x => x.Name == request.RoleName, cancellationToken))?.Id
+            ?? throw new NotFoundException("Role", request.RoleName);
+
+        await _dbContext.Users.AddAsync(applicationUser, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
-        return user.Id;
+        return applicationUser.Id;
     }
 }

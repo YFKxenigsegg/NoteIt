@@ -20,10 +20,11 @@ public class RegisterHandler : IRequestHandler<RegisterRequest, string>
     {
         var user = _dbContext.Users.FirstOrDefault(x => x.Email == request.Email);
 
-        if (user != null) throw new RegistrationException($"User with \'{request.Email}\' already exist.");
+        if (user != null) throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
 
         var applicationUser = _mapper.Map<ApplicationUser>(request);
         applicationUser.RoleId = _dbContext.Roles.First(x => x.Name == Roles.User).Id;
+
         await _dbContext.Users.AddAsync(applicationUser, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 

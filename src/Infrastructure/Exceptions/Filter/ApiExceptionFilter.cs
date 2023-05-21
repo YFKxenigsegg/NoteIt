@@ -13,7 +13,7 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
         {
             { typeof(AuthenticationException), HandlerAuthenticationException },
             { typeof(NotFoundException), HandleNotFoundException },
-            { typeof(RegistrationException), HandleRegistrationException },
+            { typeof(AlreadyExistException), HandleAlreadyExistException },
             { typeof(ValidationException), HandleValidationException }
         };
     }
@@ -62,9 +62,9 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
         context.ExceptionHandled = true;
     }
 
-    private void HandleRegistrationException(ExceptionContext context)
+    private void HandleAlreadyExistException(ExceptionContext context)
     {
-        var exception = context.Exception as RegistrationException;
+        var exception = context.Exception as AlreadyExistException;
         var details = new ProblemDetails()
         {
             Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1",
