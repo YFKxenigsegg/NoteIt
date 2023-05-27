@@ -20,11 +20,6 @@ public class ApplicationRoleConfiguration : IEntityTypeConfiguration<Application
             .IsRequired()
             .HasMaxLength(24);
 
-        builder.HasMany(x => x.Users)
-            .WithOne(x => x.Role)
-            .IsRequired()
-            .HasForeignKey(x => x.RoleId);
-
         builder.Ignore(x => x.ConcurrencyStamp);
         builder.Ignore(x => x.NormalizedName);
     }

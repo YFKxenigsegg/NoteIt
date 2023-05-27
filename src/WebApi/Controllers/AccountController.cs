@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Note.Application.Users.Register;
+using Note.Application.Handlers.User.Register;
 using Note.WebApi.Common;
 
 namespace Note.WebApi.Controllers;

@@ -11,6 +11,7 @@ using Note.Infrastructure.Identity;
 using Newtonsoft.Json;
 using System.Net;
 using Note.Domain.Entities;
+using Note.Infrastructure.Persistence;
 
 namespace Note.Auth;
 public static class DependencyInjection
@@ -32,7 +33,8 @@ public static class DependencyInjection
             options.Password.RequireUppercase = true;
             options.Password.RequiredLength = 8;
             options.Lockout.MaxFailedAccessAttempts = 5;
-        });
+        })
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
         services.AddAuthentication(options =>
         {

@@ -12,7 +12,7 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
     {
         _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
         {
-            { typeof(AuthenticationException), HandlerAuthenticationException },
+            //{ typeof(BadRequestException), HandlerAuthenticationException },
             { typeof(NotFoundException), HandleNotFoundException },
             { typeof(AlreadyExistException), HandleAlreadyExistException },
             { typeof(ValidationException), HandleValidationException },
@@ -38,18 +38,18 @@ public class ApiExceptionFilter : ExceptionFilterAttribute
         UnknownExceptionHander(context);
     }
 
-    private void HandlerAuthenticationException(ExceptionContext context)
-    {
-        var exception = context.Exception as AuthenticationException;
-        var details = new ProblemDetails()
-        {
-            Type = "https://datatracker.ietf.org/doc/html/rfc7235#section-3.1",
-            Title = "Request has not been completed because it lacks valid authentication credentials.",
-            Detail = exception!.Message
-        };
-        context.Result = new UnauthorizedObjectResult(details);
-        context.ExceptionHandled = true;
-    }
+    //private void HandlerAuthenticationException(ExceptionContext context)
+    //{
+    //    var exception = context.Exception as BadRequestException;
+    //    var details = new ProblemDetails()
+    //    {
+    //        Type = "https://datatracker.ietf.org/doc/html/rfc7235#section-3.1",
+    //        Title = "Request has not been completed because it lacks valid authentication credentials.",
+    //        Detail = exception!.Message
+    //    };
+    //    context.Result = new UnauthorizedObjectResult(details);
+    //    context.ExceptionHandled = true;
+    //}
 
     private void HandleNotFoundException(ExceptionContext context)
     {

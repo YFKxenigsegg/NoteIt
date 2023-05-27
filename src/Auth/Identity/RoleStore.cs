@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Note.Application.Role.Create;
+using Note.Application.Handlers.Role.Create;
 using Note.Domain.Entities;
 
 namespace Note.Auth.Identity;

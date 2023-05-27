@@ -1,33 +1,36 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Note.Domain.Entities;
-using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence;
+﻿//using AutoMapper;
+//using MediatR;
+//using Microsoft.AspNetCore.Identity;
+//using Microsoft.EntityFrameworkCore;
+//using Note.Domain.Entities;
+//using Note.Infrastructure.Exceptions;
+//using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
-namespace Note.Application.Handlers.User.Create;
-public class CreateHandler : IRequestHandler<CreateRequest, string>
-{
-    private readonly ApplicationDbContext _dbContext;
-    private readonly IMapper _mapper;
+//namespace Note.Application.Handlers.User.Create;
+//public class CreateHandler : IRequestHandler<CreateRequest, string>
+//{
+//    private readonly IMapper _mapper;
+//    private readonly UserManager<ApplicationUser> _userManager;
 
-    public CreateHandler(
-        ApplicationDbContext dbContext
-        , IMapper mapper
-        ) => (_dbContext, _mapper) = (dbContext, mapper);
+//    public CreateHandler(
+//        IMapper mapper
+//        , UserManager<ApplicationUser> userManager
+//        )
+//    {
+//        _mapper = mapper;
+//        _userManager = userManager;
+//    }
 
-    public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
-    {
-        if (await _dbContext.Users.AnyAsync(x => x.Email == request.Email, cancellationToken))
-            throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
+//    public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
+//    {
+//        if (await _userManager.FindByEmailAsync(request.Email) != null)
+//            throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
 
-        var user = _mapper.Map<ApplicationUser>(request);
-        user.RoleId = (await _dbContext.Roles.FirstOrDefaultAsync(x => x.Name == request.RoleName, cancellationToken))?.Id
-            ?? throw new NotFoundException("Role", request.RoleName);
+//        var user = _mapper.Map<ApplicationUser>(request);
 
-        await _dbContext.Users.AddAsync(user, cancellationToken);
-        await _dbContext.SaveChangesAsync(cancellationToken);
+//        user.RoleId = (await _roles.GetIdByNameAsync(request.RoleName, cancellationToken))
+//            ?? throw new NotFoundException("Role", request.RoleName);
 
-        return user.Id;
-    }
-}
+//        return user.Id;
+//    }
+//}

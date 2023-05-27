@@ -4,15 +4,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Note.Infrastructure.Behaviours;
 using Note.Infrastructure.Persistence;
-using Note.Infrastructure.Persistence.Interceptors;
+using Note.Infrastructure.Persistence.Repositories;
+using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace Note.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<AuditableEntitySaveChangesInterceptor>();
-
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehaviour<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
@@ -22,6 +21,9 @@ public static class DependencyInjection
                 providerOptions => providerOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
             .EnableSensitiveDataLogging(true)
         );
+
+        //services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<INoteRepository, NoteRepository>();
 
         using var scope = services.BuildServiceProvider().CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
