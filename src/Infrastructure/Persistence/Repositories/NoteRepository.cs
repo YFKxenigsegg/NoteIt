@@ -35,8 +35,8 @@ public class NoteRepository : INoteRepository
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public IQueryable<Domain.Entities.Note> GetAll()
+    public IEnumerable<Domain.Entities.Note> GetAll()
     {
-        return _dbContext.Notes.AsNoTracking();
+        return _dbContext.Notes.AsEnumerable();
     }
 }

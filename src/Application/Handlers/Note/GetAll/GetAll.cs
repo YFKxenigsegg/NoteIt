@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace Note.Application.Handlers.Note;
@@ -20,7 +19,7 @@ public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<NoteInfo
 
     public async Task<IEnumerable<NoteInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
     {
-        var notes = await _noteRepository.GetAll().ToListAsync(cancellationToken);
+        var notes = _noteRepository.GetAll().AsEnumerable();
         var result = _mapper.Map<IEnumerable<NoteInfo>>(notes);
 
         return result;

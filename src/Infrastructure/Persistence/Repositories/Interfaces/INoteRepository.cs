@@ -5,5 +5,5 @@ public interface INoteRepository : IRepository<Domain.Entities.Note>
     void Delete(Domain.Entities.Note note);
     Domain.Entities.Note Add(Domain.Entities.Note note);
     Task<Domain.Entities.Note?> GetAsync(string id, CancellationToken cancellationToken = default);
-    IQueryable<Domain.Entities.Note> GetAll();
+    IEnumerable<Domain.Entities.Note> GetAll();
 }
