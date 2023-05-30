@@ -30,7 +30,7 @@ public class UpdateTests
 
         // Assert
         _noteRepositoryMock.Verify(x => x.UnitOfWork.SaveChangesAsync(CancellationToken.None), Times.Once);
-        Assert.Equal(expectedName, expectedName);
+        Assert.Equal(expectedName, actualName);
     }
 
     [Fact]

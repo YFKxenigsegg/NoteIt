@@ -48,8 +48,7 @@ public class NoteRepositoryMock
         repoMock.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((string id, CancellationToken token) =>
             {
-                var note = notes.FirstOrDefault(x => x.Id == id)
-                    ?? throw new NotFoundException($"Entity \'{nameof(Domain.Entities.Note)}\' ({id}) was not found");
+                var note = notes.FirstOrDefault(x => x.Id == id);
                 return note;
             });
 
