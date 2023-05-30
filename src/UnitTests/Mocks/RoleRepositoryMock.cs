@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Note.Domain.Entities;
-using Note.Infrastructure.Exceptions;
+﻿using Note.Domain.Entities;
 using Note.Infrastructure.Persistence;
 using Note.Infrastructure.Persistence.Repositories.Interfaces;
 

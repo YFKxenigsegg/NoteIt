@@ -26,10 +26,10 @@ public class UpdateHandler : IRequestHandler<UpdateRequest, UserInfo>
         var user = await _userRepository.GetAsync(request.Id, cancellationToken)
             ?? throw new NotFoundException("User", request.Id);
 
-        var role = await _roleRepository.GetAsync(request.RoleId, cancellationToken)
-            ?? throw new NotFoundException("Role", request.RoleId);
+        var role = await _roleRepository.GetByNameAsync(request.RoleName, cancellationToken)
+            ?? throw new NotFoundException("Role", request.RoleName);
 
-        user.RoleId = request.Id;
+        user.RoleId = role.Id;
 
         _userRepository.Update(user);
         await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

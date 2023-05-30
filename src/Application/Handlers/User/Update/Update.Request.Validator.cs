@@ -7,6 +7,6 @@ public class UpdateRequestValidator : AbstractValidator<UpdateRequest>
     {
         RuleFor(x => x.Id).NotEmpty().WithMessage("Id is requered.");
 
-        RuleFor(x => x.RoleId).NotEmpty().WithMessage("Role is requered.");
+        RuleFor(x => x.RoleName).NotEmpty().WithMessage("Role is requered.");
     }
 }

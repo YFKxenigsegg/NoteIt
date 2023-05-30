@@ -25,7 +25,7 @@ public class CreateHandler : IRequestHandler<CreateRequest, string>
     public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
         if (await _userRepository.GetByEmailAsync(request.Email, cancellationToken) != null)
-            throw new AlreadyExistException($"User with \'{request.Email}\' already exist.");
+            throw new AlreadyExistException($"User with \'{request.Email}\' already exist");
 
         var role = (await _roleRepository.GetByNameAsync(request.RoleName, cancellationToken))
             ?? throw new NotFoundException("Role", request.RoleName);
