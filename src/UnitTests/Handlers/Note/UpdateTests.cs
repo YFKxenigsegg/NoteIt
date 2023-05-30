@@ -46,6 +46,6 @@ public class UpdateTests
             // Act
             await handler.Handle(request, CancellationToken.None);
         });
-        Assert.Equal($"Entity \"{nameof(Domain.Entities.Note)}\" ({request.Id}) was not found", exception.Message);
+        Assert.Equal($"Entity \'{nameof(Domain.Entities.Note)}\' ({request.Id}) was not found", exception.Message);
     }
 }

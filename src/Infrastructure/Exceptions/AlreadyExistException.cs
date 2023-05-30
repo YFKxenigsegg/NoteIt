@@ -7,4 +7,7 @@ public class AlreadyExistException : Exception
 
     public AlreadyExistException(string message, Exception exception)
         : base(message, exception) { }
+
+    public AlreadyExistException(string name, string key)
+        : base($"Entity \'{name}\' ({key}) already exist.") { }
 }

@@ -1,6 +1,4 @@
-﻿using Azure.Core;
-using Moq;
-using Note.Infrastructure.Exceptions;
+﻿using Note.Infrastructure.Exceptions;
 using Note.Infrastructure.Persistence;
 using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
@@ -11,21 +9,21 @@ public class NoteRepositoryMock
     {
         var notes = new List<Domain.Entities.Note>()
         {
-            new Domain.Entities.Note
+            new()
             {
                  Id = "00000000-0000-0000-0000-000000000001",
                  Name = "Name-1",
                  Url ="Url-1",
                  Created = DateTime.UtcNow
             },
-            new Domain.Entities.Note
+            new()
             {
                  Id = "00000000-0000-0000-0000-000000000002",
                  Name = "Name-2",
                  Url ="Url-2",
                  Created = DateTime.UtcNow
             },
-            new Domain.Entities.Note
+            new()
             {
                 Id = "00000000-0000-0000-0000-000000000003",
                 Name = "Name-3",
@@ -51,7 +49,7 @@ public class NoteRepositoryMock
             .ReturnsAsync((string id, CancellationToken token) =>
             {
                 var note = notes.FirstOrDefault(x => x.Id == id)
-                    ?? throw new NotFoundException($"Entity \"{nameof(Domain.Entities.Note)}\" ({id}) was not found");
+                    ?? throw new NotFoundException($"Entity \'{nameof(Domain.Entities.Note)}\' ({id}) was not found");
                 return note;
             });
 

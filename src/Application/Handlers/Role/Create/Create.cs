@@ -1,30 +1,34 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence;
+using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
-namespace Note.Application.Handlers.Role.Create;
+namespace Note.Application.Handlers.Role;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
-    private readonly ApplicationDbContext _dbContext;
+    private readonly IRoleRepository _roleRepository;
     private readonly IMapper _mapper;
 
     public CreateHandler(
-        ApplicationDbContext dbContext
+        IRoleRepository roleRepository
         , IMapper mapper
-        ) => (_dbContext, _mapper) = (dbContext, mapper);
+        )
+    {
+        _roleRepository = roleRepository;
+        _mapper = mapper;
+    }
 
     public async Task<string> Handle(CreateRequest request, CancellationToken cancellationToken)
     {
-        if (await _dbContext.Roles.AnyAsync(x => x.Name == request.Name, cancellationToken))
-            throw new AlreadyExistException($"Role with \'{request.Name}\' already exist.");
+        var role = await _roleRepository.GetByNameAsync(request.Name, cancellationToken);
 
-        var role = _mapper.Map<ApplicationRole>(request);
+        if (role != null) throw new AlreadyExistException("\'Role\'", request.Name);
 
-        await _dbContext.Roles.AddAsync(role, cancellationToken);
-        await _dbContext.SaveChangesAsync(cancellationToken);
+        role = _mapper.Map<ApplicationRole>(request);
+
+        _roleRepository.Add(role);
+        await _roleRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
         return role.Id;
     }
