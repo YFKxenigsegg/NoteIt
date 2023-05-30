@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using MediatR;
-using Note.Domain.Entities;
+﻿using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace Note.Application.Handlers.Role;
 public class CreateHandler : IRequestHandler<CreateRequest, string>

@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
-
-namespace Note.Application.Handlers.Role;
+﻿namespace Note.Application.Handlers.Role;
 public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<RoleInfo>>
 {
     private readonly IRoleRepository _roleRepository;

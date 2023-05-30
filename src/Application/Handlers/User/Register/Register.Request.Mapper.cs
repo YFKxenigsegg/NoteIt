@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Note.Domain.Entities;
+﻿using Note.Domain.Entities;
 
 namespace Note.Application.Handlers.User.Register;
 public partial class RegisterRequest

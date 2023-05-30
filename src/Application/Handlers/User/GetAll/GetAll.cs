@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
-
-namespace Note.Application.Handlers.User;
+﻿namespace Note.Application.Handlers.User;
 public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<UserInfo>>
 {
     private readonly IUserRepository _userRepository;

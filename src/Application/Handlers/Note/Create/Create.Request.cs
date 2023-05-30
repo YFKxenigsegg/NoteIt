@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Note.Application.Mappings;
+﻿using Note.Application.Mappings;
 
 namespace Note.Application.Handlers.Note;
 public class CreateRequest : IRequest<string>, IMapFrom<Domain.Entities.Note>

@@ -1,6 +1,4 @@
-﻿using MediatR;
-using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
+﻿using Note.Infrastructure.Exceptions;
 
 namespace Note.Application.Handlers.Note;
 public class DeleteHandler : IRequestHandler<DeleteRequest, Unit>

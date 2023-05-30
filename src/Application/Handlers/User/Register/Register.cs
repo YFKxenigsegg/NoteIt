@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Note.Domain.Consts;
 using Note.Domain.Entities;
 using Note.Infrastructure.Exceptions;

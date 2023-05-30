@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Note.Domain.Entities;
+﻿using Note.Domain.Entities;
 using Note.Infrastructure.Identity;
 
 namespace Note.Application.Handlers.User;

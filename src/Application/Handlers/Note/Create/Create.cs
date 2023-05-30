@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
-
-namespace Note.Application.Handlers.Note;
+﻿namespace Note.Application.Handlers.Note;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly INoteRepository _noteRepository;
