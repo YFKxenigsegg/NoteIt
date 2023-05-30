@@ -23,7 +23,7 @@ public class CreateHandler : IRequestHandler<CreateRequest, string>
     {
         var role = await _roleRepository.GetByNameAsync(request.Name, cancellationToken);
 
-        if (role != null) throw new AlreadyExistException("\'Role\'", request.Name);
+        if (role != null) throw new AlreadyExistException("Role", request.Name);
 
         role = _mapper.Map<ApplicationRole>(request);
 
