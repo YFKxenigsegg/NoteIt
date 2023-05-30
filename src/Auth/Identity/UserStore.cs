@@ -38,7 +38,7 @@ public class UserStore :
 
         try
         {
-            await _mediator.Send(new Application.Handlers.User.Create.CreateRequest { Email = user.Email });
+            await _mediator.Send(new Application.Handlers.User.CreateRequest { Email = user.Email });
         }
         catch (Exception ex)
         {
