@@ -19,7 +19,7 @@ public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<RoleInfo
 
     public async Task<IEnumerable<RoleInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
     {
-        var notes = _roleRepository.GetAll().AsEnumerable();
+        var notes = _roleRepository.GetAll();
         var result = _mapper.Map<IEnumerable<RoleInfo>>(notes);
 
         return result;

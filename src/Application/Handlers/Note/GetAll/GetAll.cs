@@ -19,7 +19,7 @@ public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<NoteInfo
 
     public async Task<IEnumerable<NoteInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
     {
-        var notes = _noteRepository.GetAll().AsEnumerable();
+        var notes = _noteRepository.GetAll();
         var result = _mapper.Map<IEnumerable<NoteInfo>>(notes);
 
         return result;

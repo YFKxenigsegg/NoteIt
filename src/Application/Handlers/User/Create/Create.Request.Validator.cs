@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Note.Application.Handlers.User.Create;
+namespace Note.Application.Handlers.User;
 public class CreateRequestValidator : AbstractValidator<CreateRequest>
 {
     public CreateRequestValidator()
