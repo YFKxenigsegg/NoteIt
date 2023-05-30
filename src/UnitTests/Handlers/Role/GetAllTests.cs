@@ -1,6 +1,5 @@
 ﻿using Note.Application.Handlers.Role;
 using Note.Application.Mappings;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.Role;
@@ -16,7 +15,7 @@ public class GetAllTests
     }
 
     [Fact]
-    public async Task ShouldReturnAllThreeRoles()
+    public async Task Get_Roles()
     {
         // Arrange
         var request = new GetAllRequest();

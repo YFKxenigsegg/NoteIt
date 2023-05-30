@@ -1,6 +1,5 @@
 ﻿using Note.Application.Handlers.Note;
 using Note.Application.Mappings;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.Note;
@@ -16,7 +15,7 @@ public class CreateTests
     }
 
     [Fact]
-    public async Task ShouldCreateNote()
+    public async Task Create_Note()
     {
         // Arrange
         var request = new CreateRequest() { Name = "CreateName", Url = "CreateUrl" };

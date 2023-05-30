@@ -1,6 +1,5 @@
 ﻿using Note.Domain.Entities;
 using Note.Infrastructure.Persistence;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace Note.UnitTests.Mocks;
 public class UserRepositoryMock

@@ -29,6 +29,6 @@ public class UpdateHandler : IRequestHandler<UpdateRequest, NoteInfo>
         _noteRepository.Update(noteUpdated);
         await _noteRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
-        return _mapper.Map<NoteInfo>(await _noteRepository.GetAsync(request.Id, cancellationToken));
+        return _mapper.Map<NoteInfo>(noteUpdated);
     }
 }

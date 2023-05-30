@@ -1,6 +1,5 @@
 ﻿using Note.Application.Handlers.Note;
 using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.Note;
@@ -14,7 +13,7 @@ public class DeleteTests
     }
 
     [Fact]
-    public async Task ShouldDeleteExistingNote()
+    public async Task Delete_Note()
     {
         var request = new DeleteRequest { Id = "00000000-0000-0000-0000-000000000001" };
         var handler = new DeleteHandler(_noteRepositoryMock.Object);
@@ -27,7 +26,7 @@ public class DeleteTests
     }
 
     [Fact]
-    public async Task ShouldThrowNotFoundExceptionForNotExistingNote()
+    public async Task Throw_NotFoundException_For_Not_Existing_Note()
     {
         // Arrange
         var request = new DeleteRequest { Id = "00000000-0000-0000-0000-000000000000" };

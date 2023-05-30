@@ -1,5 +1,4 @@
-﻿using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence;
+﻿using Note.Infrastructure.Persistence;
 using Note.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace Note.UnitTests.Mocks;

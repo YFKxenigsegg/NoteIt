@@ -1,7 +1,6 @@
 ﻿using Note.Application.Handlers.Note;
 using Note.Application.Mappings;
 using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.Note;
@@ -17,7 +16,7 @@ public class GetTests
     }
 
     [Fact]
-    public async Task ShouldReturnExistingNote()
+    public async Task Get_Note()
     {
         // Arrange
         var request = new GetRequest { Id = "00000000-0000-0000-0000-000000000001" };
@@ -31,7 +30,7 @@ public class GetTests
     }
 
     [Fact]
-    public async Task ShouldThrowNotFoundExceptionForNotExistingNote()
+    public async Task Throw_NotFoundException_For_Not_Existing_Note()
     {
         // Arrange
         var request = new GetRequest { Id = "00000000-0000-0000-0000-000000000000" };

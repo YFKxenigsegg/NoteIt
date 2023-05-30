@@ -1,6 +1,5 @@
 ﻿using Note.Application.Handlers.User;
 using Note.Application.Mappings;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.User;

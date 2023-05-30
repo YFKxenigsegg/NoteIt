@@ -1,7 +1,5 @@
 ﻿using Note.Application.Handlers.Note;
-using Note.Application.Handlers.Note;
 using Note.Application.Mappings;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.Note;
@@ -17,7 +15,7 @@ public class GetAllTests
     }
 
     [Fact]
-    public async Task ShouldReturnAllThreeNotes()
+    public async Task Get_Notes()
     {
         // Arrange
         var request = new GetAllRequest();

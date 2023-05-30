@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Note.Application.Handlers.Role;
+﻿using Note.Application.Handlers.Role;
 using Note.Application.Mappings;
 using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
 using Note.UnitTests.Mocks;
 
 namespace Note.UnitTests.Handlers.Role;
@@ -18,7 +16,7 @@ public class CreateTests
     }
 
     [Fact]
-    public async Task ShouldCreateRole()
+    public async Task Create_Role()
     {
         // Arrange
         var request = new CreateRequest() { Name = "Name-4" };
@@ -34,7 +32,7 @@ public class CreateTests
     }
 
     [Fact]
-    public async Task ShouldThrowAlreadyExistExceptionCreateExistingRole()
+    public async Task Throw_AlreadyExistException_For_Existing_Role()
     {
         // Arrange
         var request = new CreateRequest() { Name = "Name-1" };
