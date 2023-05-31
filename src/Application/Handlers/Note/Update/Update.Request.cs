@@ -1,6 +1,4 @@
-﻿using NoteIt.Application.Mappings;
-
-namespace NoteIt.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class UpdateRequest : IRequest<NoteInfo>, IMapFrom<Domain.Entities.Note>
 {
     public string Id { get; set; } = default!;

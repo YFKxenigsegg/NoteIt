@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using NoteIt.Domain.Consts;
-using NoteIt.Domain.Entities;
-using NoteIt.Infrastructure.Exceptions;
 using System.Text;
 
 namespace NoteIt.Application.Handlers.User.Register;
