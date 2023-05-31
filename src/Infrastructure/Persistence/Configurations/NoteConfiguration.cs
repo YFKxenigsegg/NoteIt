@@ -1,36 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using NoteIt.Domain.Entities;
 
 namespace NoteIt.Infrastructure.Persistence.Configurations;
-public class NoteConfiguration : IEntityTypeConfiguration<Domain.Entities.Note>
+public class NoteConfiguration : AuditableEntityBaseConfiguration<Note>
 {
-    public void Configure(EntityTypeBuilder<Domain.Entities.Note> builder)
+    public NoteConfiguration() : base("Notes") { }
+
+    public override void Configure(EntityTypeBuilder<Note> builder)
     {
-        builder.ToTable("Notes");
-        builder.HasKey(x => x.Id);
+        base.Configure(builder);
 
-        builder.Property(x => x.Id)
+        builder.Property(x => x.Name)
             .HasColumnType("nvarchar")
             .IsRequired()
-            .HasMaxLength(36)
-            .ValueGeneratedOnAdd();
+            .HasMaxLength(16);
 
-        builder.Property(x => x.Name) //
+        builder.Property(x => x.Url)
             .HasColumnType("nvarchar")
             .IsRequired()
-            .HasMaxLength(24);
-
-        builder.Property(x => x.Url) //
-            .HasColumnType("nvarchar")
-            .IsRequired()
-            .HasMaxLength(24);
-
-        builder.Property(x => x.Created)
-            .HasColumnType("datetime")
-            .IsRequired();
-
-        builder.Property(x => x.Modified)
-            .HasColumnType("datetime")
-            .IsRequired(false);
+            .HasMaxLength(128);
     }
 }

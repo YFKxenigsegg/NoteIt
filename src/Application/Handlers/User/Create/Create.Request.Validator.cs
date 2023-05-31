@@ -4,7 +4,8 @@ public class CreateRequestValidator : AbstractValidator<CreateRequest>
     public CreateRequestValidator()
     {
         RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required.")
-            .EmailAddress().WithMessage("A valid email is required.");
+            .EmailAddress().WithMessage("A valid email is required.")
+            .MaximumLength(24).WithMessage("Email should be equal or less than 12 letters");
 
         RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required.")
             .MinimumLength(8).WithMessage("Password length must be at least 8.")

@@ -7,7 +7,8 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
-        builder.HasKey(x => x.Id);
+        builder.ToTable("Users")
+            .HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
             .HasColumnType("nvarchar")
@@ -20,6 +21,11 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
             .IsRequired()
             .HasMaxLength(24);
 
+        builder.Property(x => x.PasswordHash)
+            .HasColumnType("nvarchar")
+            .IsRequired()
+            .HasMaxLength(36);
+
         builder.Property(x => x.Created)
             .HasColumnType("datetime")
             .IsRequired();
@@ -31,8 +37,6 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
         builder.Property(x => x.LastAccess)
             .HasColumnType("datetime")
             .IsRequired(false);
-
-        //passhash
 
         builder.Ignore(x => x.AccessFailedCount);
         builder.Ignore(x => x.EmailConfirmed);

@@ -9,7 +9,7 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
 {
     public DbSet<ApplicationUser> Users { get; set; }
     public DbSet<ApplicationRole> Roles { get; set; }
-    public DbSet<Domain.Entities.Note> Notes { get; set; }
+    public DbSet<Note> Notes { get; set; }
 
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options

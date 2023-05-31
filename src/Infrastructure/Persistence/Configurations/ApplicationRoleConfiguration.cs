@@ -7,7 +7,8 @@ public class ApplicationRoleConfiguration : IEntityTypeConfiguration<Application
 {
     public void Configure(EntityTypeBuilder<ApplicationRole> builder)
     {
-        builder.HasKey(x => x.Id);
+        builder.ToTable("Roles")
+            .HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
             .HasColumnType("nvarchar")
@@ -18,7 +19,11 @@ public class ApplicationRoleConfiguration : IEntityTypeConfiguration<Application
         builder.Property(x => x.Name)
             .HasColumnType("nvarchar")
             .IsRequired()
-            .HasMaxLength(24);
+            .HasMaxLength(12);
+
+        builder.Property(x => x.Created)
+            .HasColumnType("datetime")
+            .IsRequired();
 
         builder.Ignore(x => x.ConcurrencyStamp);
         builder.Ignore(x => x.NormalizedName);

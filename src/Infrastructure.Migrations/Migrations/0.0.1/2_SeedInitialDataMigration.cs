@@ -6,17 +6,14 @@ public class SeedInitialDataMigration : Migration
 {
     public override void Up()
     {
-        Create.Table("Notes")
-            .WithColumn("Id").AsFixedLengthString(36).NotNullable()
-                .PrimaryKey("PK_Notes_Id")
-            .WithColumn("Name").AsString(24).NotNullable()
-            .WithColumn("Url").AsString(24).NotNullable()
-            .WithColumn("Created").AsDateTime().NotNullable()
-            .WithColumn("Modified").AsDateTime().Nullable();
+        Insert.IntoTable("Roles").Row(new { Id = Guid.NewGuid().ToString(), Name = "administrator", Created = DateTime.UtcNow });
+        Insert.IntoTable("Roles").Row(new { Id = Guid.NewGuid().ToString(), Name = "user", Created = DateTime.UtcNow });
+
+        throw new NotImplementedException();
     }
 
     public override void Down()
     {
-        Delete.Table("Notes");
+        throw new NotImplementedException();
     }
 }
