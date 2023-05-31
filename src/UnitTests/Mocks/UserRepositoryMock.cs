@@ -1,7 +1,4 @@
-﻿using NoteIt.Domain.Entities;
-using NoteIt.Infrastructure.Persistence;
-
-namespace NoteIt.UnitTests.Mocks;
+﻿namespace NoteIt.UnitTests.Mocks;
 public class UserRepositoryMock
 {
     public static Mock<IUserRepository> GetUserRepositoryMock()

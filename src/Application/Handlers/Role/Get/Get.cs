@@ -1,6 +1,4 @@
-﻿using NoteIt.Infrastructure.Exceptions;
-
-namespace NoteIt.Application.Handlers.Role;
+﻿namespace NoteIt.Application.Handlers.Role;
 public class GetHandler : IRequestHandler<GetRequest, RoleInfo>
 {
     private readonly IRoleRepository _roleRepository;

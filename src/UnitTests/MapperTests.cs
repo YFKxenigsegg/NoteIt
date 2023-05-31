@@ -21,12 +21,12 @@ public class MapperTests
 
     [Theory]
     // Note
-    [InlineData(typeof(Domain.Entities.Note), typeof(NoteInfo))]
-    [InlineData(typeof(NoteInfo), typeof(Domain.Entities.Note))]
-    [InlineData(typeof(Application.Handlers.Note.CreateRequest), typeof(Domain.Entities.Note))]
-    [InlineData(typeof(Domain.Entities.Note), typeof(Application.Handlers.Note.CreateRequest))]
-    [InlineData(typeof(Application.Handlers.Note.UpdateRequest), typeof(Domain.Entities.Note))]
-    [InlineData(typeof(Domain.Entities.Note), typeof(Application.Handlers.Note.UpdateRequest))]
+    [InlineData(typeof(Note), typeof(NoteInfo))]
+    [InlineData(typeof(NoteInfo), typeof(Note))]
+    [InlineData(typeof(Application.Handlers.Note.CreateRequest), typeof(Note))]
+    [InlineData(typeof(Note), typeof(Application.Handlers.Note.CreateRequest))]
+    [InlineData(typeof(Application.Handlers.Note.UpdateRequest), typeof(Note))]
+    [InlineData(typeof(Note), typeof(Application.Handlers.Note.UpdateRequest))]
 
     // Role
     [InlineData(typeof(ApplicationRole), typeof(RoleInfo))]

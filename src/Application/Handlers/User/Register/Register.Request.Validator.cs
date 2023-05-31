@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace NoteIt.Application.Handlers.User.Register;
+﻿namespace NoteIt.Application.Handlers.User.Register;
 public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
 {
     public RegisterRequestValidator()

@@ -1,5 +1,4 @@
 ﻿using NoteIt.Application.Common;
-using NoteIt.Application.Mappings;
 
 namespace NoteIt.Application.Handlers.Note;
 public class NoteInfo : InfoBase, IMapFrom<Domain.Entities.Note>

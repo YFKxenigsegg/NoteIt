@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace NoteIt.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class UpdateRequestValidator: AbstractValidator<UpdateRequest>
 {
 	public UpdateRequestValidator()

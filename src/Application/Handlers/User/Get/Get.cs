@@ -1,6 +1,4 @@
-﻿using NoteIt.Infrastructure.Exceptions;
-
-namespace NoteIt.Application.Handlers.User;
+﻿namespace NoteIt.Application.Handlers.User;
 public class GetHandler : IRequestHandler<GetRequest, UserInfo>
 {
     private readonly IUserRepository _userRepository;

@@ -1,6 +1,4 @@
 ﻿using NoteIt.Application.Common;
-using NoteIt.Application.Mappings;
-using NoteIt.Domain.Entities;
 
 namespace NoteIt.Application.Handlers.User;
 public class UserInfo : InfoBase, IMapFrom<ApplicationUser>

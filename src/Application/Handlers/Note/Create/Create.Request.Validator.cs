@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace NoteIt.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class CreateRequestValidator : AbstractValidator<CreateRequest>
 {
     public CreateRequestValidator()

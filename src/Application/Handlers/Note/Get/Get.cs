@@ -1,6 +1,4 @@
-﻿using NoteIt.Infrastructure.Exceptions;
-
-namespace NoteIt.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class GetHandler : IRequestHandler<GetRequest, NoteInfo>
 {
     private readonly INoteRepository _noteRepository;

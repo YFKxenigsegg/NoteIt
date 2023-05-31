@@ -1,5 +1,4 @@
-﻿using NoteIt.Domain.Entities;
-using NoteIt.Infrastructure.Identity;
+﻿using NoteIt.Infrastructure.Identity;
 
 namespace NoteIt.Application.Handlers.User;
 public partial class CreateRequest

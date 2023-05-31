@@ -1,6 +1,4 @@
-﻿using NoteIt.Domain.Entities;
-
-namespace NoteIt.Application.Handlers.User.Register;
+﻿namespace NoteIt.Application.Handlers.User.Register;
 public partial class RegisterRequest
 {
     public void Mapping(Profile profile)
