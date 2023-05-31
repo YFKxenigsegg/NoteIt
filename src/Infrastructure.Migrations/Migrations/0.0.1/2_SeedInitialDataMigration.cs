@@ -8,12 +8,11 @@ public class SeedInitialDataMigration : Migration
     {
         Insert.IntoTable("Roles").Row(new { Id = Guid.NewGuid().ToString(), Name = "administrator", Created = DateTime.UtcNow });
         Insert.IntoTable("Roles").Row(new { Id = Guid.NewGuid().ToString(), Name = "user", Created = DateTime.UtcNow });
-
-        throw new NotImplementedException();
     }
 
     public override void Down()
     {
-        throw new NotImplementedException();
+        Delete.FromTable("Roles").Row(new { Name = "administrator" });
+        Delete.FromTable("Roles").Row(new { Name = "user" });
     }
 }
