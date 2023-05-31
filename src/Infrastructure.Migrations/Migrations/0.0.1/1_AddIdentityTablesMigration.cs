@@ -19,7 +19,7 @@ public class AddIdentityTablesMigration : Migration
                 .PrimaryKey("PK_Users_Id")
             .WithColumn("Email").AsString(24).NotNullable()
                 .Unique("IX_Users_Email")
-            .WithColumn("PasswordHash").AsString(36).NotNullable()
+            .WithColumn("PasswordHash").AsString(96).NotNullable()
             .WithColumn("Created").AsDateTime().NotNullable()
             .WithColumn("Modified").AsDateTime().Nullable()
             .WithColumn("LastAccess").AsDateTime().Nullable()

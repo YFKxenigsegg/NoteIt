@@ -24,7 +24,7 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
         builder.Property(x => x.PasswordHash)
             .HasColumnType("nvarchar")
             .IsRequired()
-            .HasMaxLength(36);
+            .HasMaxLength(96);
 
         builder.Property(x => x.Created)
             .HasColumnType("datetime")
