@@ -19,7 +19,7 @@ public class ApplicationRoleConfiguration : IEntityTypeConfiguration<Application
         builder.Property(x => x.Name)
             .HasColumnType("nvarchar")
             .IsRequired()
-            .HasMaxLength(12);
+            .HasMaxLength(20);
 
         builder.Property(x => x.Created)
             .HasColumnType("datetime")

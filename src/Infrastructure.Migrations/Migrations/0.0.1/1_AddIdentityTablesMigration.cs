@@ -11,7 +11,7 @@ public class AddIdentityTablesMigration : Migration
         Create.Table("Roles")
             .WithColumn("Id").AsFixedLengthString(36).NotNullable()
                 .PrimaryKey("PK_Roles_Id")
-            .WithColumn("Name").AsString(12).NotNullable()
+            .WithColumn("Name").AsString(20).NotNullable()
             .WithColumn("Created").AsDateTime().NotNullable();
 
         Create.Table("Users")

@@ -11,4 +11,11 @@ public class AccountController : ApiControllerBase
         var result = await Mediator.Send(request, cancellationToken);
         return Ok(result);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginRequest request, CancellationToken cancellationToken)
+    {
+        var result = await Mediator.Send(request, cancellationToken);
+        return Ok(result);
+    }
 }
