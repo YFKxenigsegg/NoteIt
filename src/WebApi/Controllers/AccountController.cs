@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NoteIt.Application.Handlers.User.Register;
+using NoteIt.Application.Handlers.Account;
 using NoteIt.WebApi.Common;
 
 namespace NoteIt.WebApi.Controllers;
-
 public class AccountController : ApiControllerBase
 {
     [HttpPost]

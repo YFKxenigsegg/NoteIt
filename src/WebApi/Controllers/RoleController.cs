@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NoteIt.Application.Handlers.User;
+using NoteIt.Application.Handlers.Role;
 using NoteIt.WebApi.Common;
 
 namespace NoteIt.WebApi.Controllers;
-public class UserController : ApiControllerBase
+
+public class RoleController : ApiControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> Create(CreateRequest request, CancellationToken cancellationToken)
@@ -21,13 +22,6 @@ public class UserController : ApiControllerBase
 
     [HttpGet]
     public async Task<IActionResult> GetAll(GetAllRequest request, CancellationToken cancellationToken)
-    {
-        var result = await Mediator.Send(request, cancellationToken);
-        return Ok(result);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Update(UpdateRequest request, CancellationToken cancellationToken)
     {
         var result = await Mediator.Send(request, cancellationToken);
         return Ok(result);

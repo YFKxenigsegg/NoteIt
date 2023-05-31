@@ -2,7 +2,7 @@
 using NoteIt.Domain.Consts;
 using System.Text;
 
-namespace NoteIt.Application.Handlers.User.Register;
+namespace NoteIt.Application.Handlers.Account.Register;
 public class RegisterHandler : IRequestHandler<RegisterRequest, string>
 {
     private readonly IMapper _mapper;

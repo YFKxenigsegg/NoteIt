@@ -1,4 +1,4 @@
-﻿namespace NoteIt.Application.Handlers.User.Register;
+﻿namespace NoteIt.Application.Handlers.Account.Register;
 public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
 {
     public RegisterRequestValidator()

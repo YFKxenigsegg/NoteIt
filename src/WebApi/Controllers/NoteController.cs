@@ -3,7 +3,6 @@ using NoteIt.Application.Handlers.Note;
 using NoteIt.WebApi.Common;
 
 namespace NoteIt.WebApi.Controllers;
-
 public class NoteController : ApiControllerBase
 {
     [HttpPost]

@@ -1,4 +1,4 @@
-﻿namespace NoteIt.Application.Handlers.User.Register;
+﻿namespace NoteIt.Application.Handlers.Account;
 public partial class RegisterRequest : IRequest<string>, IMapFrom<ApplicationUser>
 {
     public string Email { get; set; } = default!;
