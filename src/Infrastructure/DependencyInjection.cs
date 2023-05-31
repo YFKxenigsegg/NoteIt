@@ -22,8 +22,9 @@ public static class DependencyInjection
             .EnableSensitiveDataLogging(true)
         );
 
-        //services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<INoteRepository, NoteRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         using var scope = services.BuildServiceProvider().CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
