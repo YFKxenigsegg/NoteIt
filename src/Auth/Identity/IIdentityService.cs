@@ -1,6 +1,6 @@
-﻿using Note.Application.Models;
+﻿using NoteIt.Application.Models;
 
-namespace Note.Auth.Identity;
+namespace NoteIt.Auth.Identity;
 public interface IIdentityService
 {
     Task<string> GetUserNameAsync(string userId);

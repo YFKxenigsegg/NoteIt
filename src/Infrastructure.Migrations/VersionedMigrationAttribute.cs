@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace Note.Infrastructure.Migrations;
+namespace NoteIt.Infrastructure.Migrations;
 [AttributeUsage(AttributeTargets.Class)]
 public class VersionedMigrationAttribute : MigrationAttribute
 {

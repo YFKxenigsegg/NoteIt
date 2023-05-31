@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Note.Application.Mappings;
+using NoteIt.Application.Mappings;
 using System.Reflection;
 
-namespace Note.Auth.Mappings;
+namespace NoteIt.Auth.Mappings;
 public class MappingProfile : Profile
 {
     public MappingProfile()

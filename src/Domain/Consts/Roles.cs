@@ -1,4 +1,4 @@
-﻿namespace Note.Domain.Consts;
+﻿namespace NoteIt.Domain.Consts;
 public static class Roles
 {
     public const string Administrator = "administrator";

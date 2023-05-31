@@ -2,12 +2,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Note.Auth.Feature.User;
-using Note.Domain.Entities;
-using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Persistence;
+using NoteIt.Auth.Feature.User;
+using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Exceptions;
+using NoteIt.Infrastructure.Persistence;
 
-namespace Note.Auth.Identity;
+namespace NoteIt.Auth.Identity;
 public class UserStore :
     IUserStore<ApplicationUser>
     , IUserPasswordStore<ApplicationUser>

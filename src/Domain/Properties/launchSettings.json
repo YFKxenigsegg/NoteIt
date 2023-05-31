@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Note.Domain": {
+    "NoteIt.Domain": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Note.Infrastructure.Exceptions;
+namespace NoteIt.Infrastructure.Exceptions;
 public class ExceptionBase : Exception
 {
     public HttpStatusCode StatusCode { get; set; }

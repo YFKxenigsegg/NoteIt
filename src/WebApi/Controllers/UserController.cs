@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Note.Application.Handlers.User;
-using Note.WebApi.Common;
+using NoteIt.Application.Handlers.User;
+using NoteIt.WebApi.Common;
 
-namespace Note.WebApi.Controllers;
+namespace NoteIt.WebApi.Controllers;
 
 public class UserController : ApiControllerBase
 {

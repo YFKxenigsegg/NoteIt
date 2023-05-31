@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
-namespace Note.Infrastructure.Exceptions.Filter;
+namespace NoteIt.Infrastructure.Exceptions.Filter;
 public class ApiExceptionFilter : ExceptionFilterAttribute
 {
     private readonly IDictionary<Type, Action<ExceptionContext>> _exceptionHandlers;

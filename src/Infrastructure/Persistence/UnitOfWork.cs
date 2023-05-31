@@ -1,8 +1,8 @@
 ﻿//using Microsoft.EntityFrameworkCore;
 //using Microsoft.EntityFrameworkCore.ChangeTracking;
-//using Note.Domain.Common;
+//using NoteIt.Domain.Common;
 
-//namespace Note.Infrastructure.Persistence;
+//namespace NoteIt.Infrastructure.Persistence;
 //public sealed class UnitOfWork : IUnitOfWork
 //{
 //    private readonly ApplicationDbContext _dbContext;

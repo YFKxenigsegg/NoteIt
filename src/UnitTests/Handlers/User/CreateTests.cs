@@ -1,9 +1,9 @@
-﻿using Note.Application.Handlers.User;
-using Note.Application.Mappings;
-using Note.Infrastructure.Exceptions;
-using Note.UnitTests.Mocks;
+﻿using NoteIt.Application.Handlers.User;
+using NoteIt.Application.Mappings;
+using NoteIt.Infrastructure.Exceptions;
+using NoteIt.UnitTests.Mocks;
 
-namespace Note.UnitTests.Handlers.User;
+namespace NoteIt.UnitTests.Handlers.User;
 public class CreateTests
 {
     private readonly Mock<IUserRepository> _userRepositoryMock;

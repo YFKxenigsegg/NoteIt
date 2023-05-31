@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Note.Infrastructure.Persistence.Configurations;
+namespace NoteIt.Infrastructure.Persistence.Configurations;
 public class NoteConfiguration : IEntityTypeConfiguration<Domain.Entities.Note>
 {
     public void Configure(EntityTypeBuilder<Domain.Entities.Note> builder)

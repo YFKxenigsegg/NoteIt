@@ -1,7 +1,7 @@
-﻿using Note.Application.Common;
-using Note.Application.Mappings;
+﻿using NoteIt.Application.Common;
+using NoteIt.Application.Mappings;
 
-namespace Note.Application.Handlers.Note;
+namespace NoteIt.Application.Handlers.Note;
 public class NoteInfo : InfoBase, IMapFrom<Domain.Entities.Note>
 {
     public string Name { get; set; } = default!;

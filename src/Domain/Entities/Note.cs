@@ -1,6 +1,6 @@
-﻿using Note.Domain.Common;
+﻿using NoteIt.Domain.Common;
 
-namespace Note.Domain.Entities;
+namespace NoteIt.Domain.Entities;
 public class Note : AuditableEntityBase
 {
     public string Name { get; set; } = default!;

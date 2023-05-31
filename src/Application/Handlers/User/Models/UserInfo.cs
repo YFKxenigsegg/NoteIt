@@ -1,8 +1,8 @@
-﻿using Note.Application.Common;
-using Note.Application.Mappings;
-using Note.Domain.Entities;
+﻿using NoteIt.Application.Common;
+using NoteIt.Application.Mappings;
+using NoteIt.Domain.Entities;
 
-namespace Note.Application.Handlers.User;
+namespace NoteIt.Application.Handlers.User;
 public class UserInfo : InfoBase, IMapFrom<ApplicationUser>
 {
     public string Email { get; set; } = default!;

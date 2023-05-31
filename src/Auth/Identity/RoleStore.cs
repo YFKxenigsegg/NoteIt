@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Note.Application.Handlers.Role;
-using Note.Domain.Entities;
+using NoteIt.Application.Handlers.Role;
+using NoteIt.Domain.Entities;
 
-namespace Note.Auth.Identity;
+namespace NoteIt.Auth.Identity;
 public class RoleStore : IRoleStore<ApplicationRole>
 {
     private readonly IMediator _mediator;

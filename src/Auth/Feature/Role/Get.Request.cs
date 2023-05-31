@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Note.Infrastructure.Identity;
+using NoteIt.Infrastructure.Identity;
 
-namespace Note.Auth.Feature.Role;
+namespace NoteIt.Auth.Feature.Role;
 public class GetRequest : IRequest<RoleInfo>
 {
     public string? Id { get; set; }

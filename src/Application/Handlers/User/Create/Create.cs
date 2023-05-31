@@ -1,7 +1,7 @@
-﻿using Note.Domain.Entities;
-using Note.Infrastructure.Exceptions;
+﻿using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Exceptions;
 
-namespace Note.Application.Handlers.User;
+namespace NoteIt.Application.Handlers.User;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly IUserRepository _userRepository;

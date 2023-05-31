@@ -1,6 +1,6 @@
-﻿using Note.Domain.Entities;
+﻿using NoteIt.Domain.Entities;
 
-namespace Note.Infrastructure.Persistence.Repositories.Interfaces;
+namespace NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
 public interface IRoleRepository : IRepository<ApplicationRole>
 {
     ApplicationRole Add(ApplicationRole role);

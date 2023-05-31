@@ -1,8 +1,8 @@
-﻿using Note.Application.Handlers.Note;
-using Note.Infrastructure.Exceptions;
-using Note.UnitTests.Mocks;
+﻿using NoteIt.Application.Handlers.Note;
+using NoteIt.Infrastructure.Exceptions;
+using NoteIt.UnitTests.Mocks;
 
-namespace Note.UnitTests.Handlers.Note;
+namespace NoteIt.UnitTests.Handlers.Note;
 public class DeleteTests
 {
     private readonly Mock<INoteRepository> _noteRepositoryMock;

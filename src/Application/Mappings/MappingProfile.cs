@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Note.Application.Mappings;
+namespace NoteIt.Application.Mappings;
 public class MappingProfile : Profile
 {
     public MappingProfile()

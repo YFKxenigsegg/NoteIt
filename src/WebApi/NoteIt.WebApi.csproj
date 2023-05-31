@@ -26,10 +26,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Auth\Note.Auth.csproj" />
-		<ProjectReference Include="..\Infrastructure.Migrations\Note.Infrastructure.Migrations.csproj" />
-		<ProjectReference Include="..\Infrastructure\Note.Infrastructure.csproj" />
-		<ProjectReference Include="..\Application\Note.Application.csproj" />
+		<ProjectReference Include="..\Auth\NoteIt.Auth.csproj" />
+		<ProjectReference Include="..\Infrastructure.Migrations\NoteIt.Infrastructure.Migrations.csproj" />
+		<ProjectReference Include="..\Infrastructure\NoteIt.Infrastructure.csproj" />
+		<ProjectReference Include="..\Application\NoteIt.Application.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

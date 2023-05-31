@@ -1,4 +1,4 @@
-﻿namespace Note.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly INoteRepository _noteRepository;

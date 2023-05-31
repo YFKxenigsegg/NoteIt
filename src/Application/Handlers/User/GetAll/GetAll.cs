@@ -1,4 +1,4 @@
-﻿namespace Note.Application.Handlers.User;
+﻿namespace NoteIt.Application.Handlers.User;
 public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<UserInfo>>
 {
     private readonly IUserRepository _userRepository;

@@ -1,7 +1,7 @@
-﻿using Note.Infrastructure.Persistence;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
+﻿using NoteIt.Infrastructure.Persistence;
+using NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
 
-namespace Note.UnitTests.Mocks;
+namespace NoteIt.UnitTests.Mocks;
 public class NoteRepositoryMock
 {
     public static Mock<INoteRepository> GetNoteRepositoryMock()

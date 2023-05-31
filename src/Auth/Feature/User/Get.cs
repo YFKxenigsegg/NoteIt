@@ -2,12 +2,12 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Note.Domain.Entities;
-using Note.Infrastructure.Exceptions;
-using Note.Infrastructure.Identity;
-using Note.Infrastructure.Persistence;
+using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Exceptions;
+using NoteIt.Infrastructure.Identity;
+using NoteIt.Infrastructure.Persistence;
 
-namespace Note.Auth.Feature.User;
+namespace NoteIt.Auth.Feature.User;
 public class GetHandler : IRequestHandler<GetRequest, ApplicationUser>
 {
     private readonly ApplicationDbContext _dbContext;

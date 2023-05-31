@@ -1,4 +1,4 @@
-﻿namespace Note.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<NoteInfo>>
 {
     private readonly INoteRepository _noteRepository;

@@ -1,9 +1,9 @@
-﻿//using Note.Domain.Entities;
-//using Note.UnitTests.Fixtures;
-//using Note.UnitTests.Infrastructure.Helpers;
+﻿//using NoteIt.Domain.Entities;
+//using NoteIt.UnitTests.Fixtures;
+//using NoteIt.UnitTests.Infrastructure.Helpers;
 //using Xunit;
 
-//namespace Note.UnitTests;
+//namespace NoteIt.UnitTests;
 //public class ApplicationDbContextTests : IClassFixture<ApplicationDbContextFixture>
 //{
 //    private readonly ApplicationDbContextFixture _dbContextFixture;

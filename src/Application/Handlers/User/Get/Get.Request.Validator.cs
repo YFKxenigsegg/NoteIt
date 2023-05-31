@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Note.Application.Handlers.User;
+namespace NoteIt.Application.Handlers.User;
 public class GetRequestValidator : AbstractValidator<GetRequest>
 {
     public GetRequestValidator()

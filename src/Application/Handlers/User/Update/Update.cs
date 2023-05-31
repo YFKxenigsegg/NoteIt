@@ -1,6 +1,6 @@
-﻿using Note.Infrastructure.Exceptions;
+﻿using NoteIt.Infrastructure.Exceptions;
 
-namespace Note.Application.Handlers.User;
+namespace NoteIt.Application.Handlers.User;
 public class UpdateHandler : IRequestHandler<UpdateRequest, UserInfo>
 {
     private readonly IUserRepository _userRepository;

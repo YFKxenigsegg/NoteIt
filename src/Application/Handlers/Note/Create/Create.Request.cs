@@ -1,6 +1,6 @@
-﻿using Note.Application.Mappings;
+﻿using NoteIt.Application.Mappings;
 
-namespace Note.Application.Handlers.Note;
+namespace NoteIt.Application.Handlers.Note;
 public class CreateRequest : IRequest<string>, IMapFrom<Domain.Entities.Note>
 {
     public string Name { get; set; } = default!;

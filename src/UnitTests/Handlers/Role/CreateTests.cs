@@ -1,9 +1,9 @@
-﻿using Note.Application.Handlers.Role;
-using Note.Application.Mappings;
-using Note.Infrastructure.Exceptions;
-using Note.UnitTests.Mocks;
+﻿using NoteIt.Application.Handlers.Role;
+using NoteIt.Application.Mappings;
+using NoteIt.Infrastructure.Exceptions;
+using NoteIt.UnitTests.Mocks;
 
-namespace Note.UnitTests.Handlers.Role;
+namespace NoteIt.UnitTests.Handlers.Role;
 public class CreateTests
 {
     private readonly Mock<IRoleRepository> _roleRepositoryMock;

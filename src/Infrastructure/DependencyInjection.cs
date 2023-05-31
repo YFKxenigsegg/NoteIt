@@ -2,12 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Note.Infrastructure.Behaviours;
-using Note.Infrastructure.Persistence;
-using Note.Infrastructure.Persistence.Repositories;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
+using NoteIt.Infrastructure.Behaviours;
+using NoteIt.Infrastructure.Persistence;
+using NoteIt.Infrastructure.Persistence.Repositories;
+using NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
 
-namespace Note.Infrastructure;
+namespace NoteIt.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)

@@ -1,7 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Note.Application.Options;
+namespace NoteIt.Application.Options;
 public class AuthOptions
 {
     public string Issuer { get; set; } = default!;

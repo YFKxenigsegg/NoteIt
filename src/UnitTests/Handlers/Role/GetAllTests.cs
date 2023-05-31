@@ -1,8 +1,8 @@
-﻿using Note.Application.Handlers.Role;
-using Note.Application.Mappings;
-using Note.UnitTests.Mocks;
+﻿using NoteIt.Application.Handlers.Role;
+using NoteIt.Application.Mappings;
+using NoteIt.UnitTests.Mocks;
 
-namespace Note.UnitTests.Handlers.Role;
+namespace NoteIt.UnitTests.Handlers.Role;
 public class GetAllTests
 {
     private readonly Mock<IRoleRepository> _roleRepositoryMock;

@@ -1,7 +1,7 @@
-﻿using Note.Domain.Entities;
-using Note.Infrastructure.Identity;
+﻿using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Identity;
 
-namespace Note.Application.Handlers.User;
+namespace NoteIt.Application.Handlers.User;
 public partial class CreateRequest
 {
     public void Mapping(Profile profile)

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Note.Domain.Consts;
-using Note.Domain.Entities;
-using Note.Infrastructure.Exceptions;
+using NoteIt.Domain.Consts;
+using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Exceptions;
 using System.Text;
 
-namespace Note.Application.Handlers.User.Register;
+namespace NoteIt.Application.Handlers.User.Register;
 public class RegisterHandler : IRequestHandler<RegisterRequest, string>
 {
     private readonly IMapper _mapper;

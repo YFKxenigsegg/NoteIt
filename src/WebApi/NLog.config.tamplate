@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://www.nlog-project.org/schemas/NLog.xsd NLog.xsd"
       autoReload="true"
       throwExceptions="false"
-      internalLogFile="./logs/Note.local.nlog.txt">
+      internalLogFile="./logs/NoteIt.local.nlog.txt">
 
 	<extensions>
 		<add assembly="NLog.Web.AspNetCore"/>

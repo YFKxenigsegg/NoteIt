@@ -1,4 +1,4 @@
-﻿namespace Note.Infrastructure.Exceptions;
+﻿namespace NoteIt.Infrastructure.Exceptions;
 public class NotFoundException : Exception
 {
     public NotFoundException() : base() { }

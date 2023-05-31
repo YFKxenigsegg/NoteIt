@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Note.Application.Models;
-using Note.Domain.Entities;
+using NoteIt.Application.Models;
+using NoteIt.Domain.Entities;
 
-namespace Note.Auth.Identity;
+namespace NoteIt.Auth.Identity;
 public class IdentityService : IIdentityService
 {
     private readonly UserManager<ApplicationUser> _userManager;

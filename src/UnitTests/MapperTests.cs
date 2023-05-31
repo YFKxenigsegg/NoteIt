@@ -1,11 +1,11 @@
-﻿using Note.Application.Handlers.Note;
-using Note.Application.Handlers.Role;
-using Note.Application.Handlers.User;
-using Note.Application.Mappings;
-using Note.Domain.Entities;
+﻿using NoteIt.Application.Handlers.Note;
+using NoteIt.Application.Handlers.Role;
+using NoteIt.Application.Handlers.User;
+using NoteIt.Application.Mappings;
+using NoteIt.Domain.Entities;
 using System.Runtime.Serialization;
 
-namespace Note.UnitTests;
+namespace NoteIt.UnitTests;
 public class MapperTests
 {
     private readonly IConfigurationProvider _configuration;

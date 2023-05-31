@@ -1,4 +1,4 @@
-﻿namespace Note.Application.Models;
+﻿namespace NoteIt.Application.Models;
 public class Error
 {
     public string Message { get; set; } = default!;

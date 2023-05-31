@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace Note.Infrastructure.Exceptions;
+namespace NoteIt.Infrastructure.Exceptions;
 public class ValidationException : Exception
 {
     public IDictionary<string, string[]> Errors { get; }

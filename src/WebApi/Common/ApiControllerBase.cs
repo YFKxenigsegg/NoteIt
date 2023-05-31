@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Note.WebApi.Common;
+namespace NoteIt.WebApi.Common;
 [ApiController]
 [Route("api/[controller]/[action]")]
 public class ApiControllerBase : ControllerBase

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Note.Infrastructure.Persistence.Helpers;
-using Note.Infrastructure.Persistence.Helpers.Interfaces;
+using NoteIt.Infrastructure.Persistence.Helpers;
+using NoteIt.Infrastructure.Persistence.Helpers.Interfaces;
 
-namespace Note.Application;
+namespace NoteIt.Application;
 public static class DependincyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)

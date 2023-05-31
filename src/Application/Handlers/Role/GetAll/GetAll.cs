@@ -1,4 +1,4 @@
-﻿namespace Note.Application.Handlers.Role;
+﻿namespace NoteIt.Application.Handlers.Role;
 public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<RoleInfo>>
 {
     private readonly IRoleRepository _roleRepository;

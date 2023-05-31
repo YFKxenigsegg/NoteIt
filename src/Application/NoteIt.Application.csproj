@@ -19,8 +19,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Domain\Note.Domain.csproj" />
-		<ProjectReference Include="..\Infrastructure\Note.Infrastructure.csproj" />
+		<ProjectReference Include="..\Domain\NoteIt.Domain.csproj" />
+		<ProjectReference Include="..\Infrastructure\NoteIt.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>

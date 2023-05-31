@@ -1,7 +1,7 @@
 ﻿using FluentMigrator;
 using System.Data;
 
-namespace Note.Infrastructure.Migrations;
+namespace NoteIt.Infrastructure.Migrations;
 [VersionedMigration(0, 0, 1, 1, "Add default Identity tables")]
 public class AddDefaultIdentityTablesMigration : Migration
 {

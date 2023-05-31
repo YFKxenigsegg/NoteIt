@@ -1,8 +1,8 @@
-﻿//using Note.Infrastructure.Persistence;
-//using Note.UnitTests.Infrastructure.Helpers;
-//using Note.UnitTests.Infrastructure.Helpers.Common;
+﻿//using NoteIt.Infrastructure.Persistence;
+//using NoteIt.UnitTests.Infrastructure.Helpers;
+//using NoteIt.UnitTests.Infrastructure.Helpers.Common;
 
-//namespace Note.UnitTests.Fixtures;
+//namespace NoteIt.UnitTests.Fixtures;
 //public class ApplicationDbContextFixture
 //{
 //    public ApplicationDbContext Create()

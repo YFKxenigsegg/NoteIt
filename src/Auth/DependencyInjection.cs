@@ -4,16 +4,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Note.Application.Models;
-using Note.Application.Options;
-using Note.Auth.Identity;
-using Note.Infrastructure.Identity;
+using NoteIt.Application.Models;
+using NoteIt.Application.Options;
+using NoteIt.Auth.Identity;
+using NoteIt.Infrastructure.Identity;
 using Newtonsoft.Json;
 using System.Net;
-using Note.Domain.Entities;
-using Note.Infrastructure.Persistence;
+using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Persistence;
 
-namespace Note.Auth;
+namespace NoteIt.Auth;
 public static class DependencyInjection
 {
     public static IServiceCollection AddIdentity(this IServiceCollection services, IConfiguration configuration)

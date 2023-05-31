@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Note.Domain.Entities;
+using NoteIt.Domain.Entities;
 
-namespace Note.Auth.Feature.User;
+namespace NoteIt.Auth.Feature.User;
 public class GetRequest : IRequest<ApplicationUser>
 {
     public string? Id { get; set; }

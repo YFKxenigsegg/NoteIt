@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Note.Infrastructure.Behaviours;
+namespace NoteIt.Infrastructure.Behaviours;
 public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     where TRequest : notnull
 {

@@ -1,8 +1,8 @@
-﻿using Note.Application.Handlers.User;
-using Note.Application.Mappings;
-using Note.UnitTests.Mocks;
+﻿using NoteIt.Application.Handlers.User;
+using NoteIt.Application.Mappings;
+using NoteIt.UnitTests.Mocks;
 
-namespace Note.UnitTests.Handlers.User;
+namespace NoteIt.UnitTests.Handlers.User;
 public class GetAllTests
 {
     private readonly Mock<IUserRepository> _userRepositoryMock;

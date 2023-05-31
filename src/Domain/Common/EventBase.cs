@@ -1,4 +1,4 @@
-﻿namespace Note.Domain.Common;
+﻿namespace NoteIt.Domain.Common;
 public abstract class EventBase
 {
 }

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Note.Application.Handlers.Note;
+namespace NoteIt.Application.Handlers.Note;
 public class DeleteRequestValidator : AbstractValidator<DeleteRequest>
 {
 	public DeleteRequestValidator()

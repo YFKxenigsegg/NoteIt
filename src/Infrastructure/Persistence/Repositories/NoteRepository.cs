@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Note.Infrastructure.Persistence.Repositories.Interfaces;
+using NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
 
-namespace Note.Infrastructure.Persistence.Repositories;
+namespace NoteIt.Infrastructure.Persistence.Repositories;
 public class NoteRepository : INoteRepository
 {
     private readonly ApplicationDbContext _dbContext;

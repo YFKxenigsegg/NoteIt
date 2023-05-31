@@ -1,7 +1,7 @@
-﻿using Note.Domain.Entities;
-using Note.Infrastructure.Mappings;
+﻿using NoteIt.Domain.Entities;
+using NoteIt.Infrastructure.Mappings;
 
-namespace Note.Infrastructure.Identity;
+namespace NoteIt.Infrastructure.Identity;
 public class RoleInfo : IMapFrom<ApplicationRole>
 {
     public string Id { get; set; } = default!;

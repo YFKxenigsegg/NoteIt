@@ -1,11 +1,11 @@
 using AutoMapper;
 using AutoMapper.EquivalencyExpression;
-using Note.Application;
-using Note.Auth;
-using Note.Infrastructure;
-using Note.Infrastructure.Exceptions.Filter;
-using Note.Infrastructure.Migrations;
-using Note.Infrastructure.Persistence;
+using NoteIt.Application;
+using NoteIt.Auth;
+using NoteIt.Infrastructure;
+using NoteIt.Infrastructure.Exceptions.Filter;
+using NoteIt.Infrastructure.Migrations;
+using NoteIt.Infrastructure.Persistence;
 using NLog;
 using NLog.Web;
 using NSwag;

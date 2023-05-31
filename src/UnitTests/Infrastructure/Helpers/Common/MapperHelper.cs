@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Moq;
-using Note.Application.Mappings;
+using NoteIt.Application.Mappings;
 
-namespace Note.UnitTests.Infrastructure.Helpers.Common;
+namespace NoteIt.UnitTests.Infrastructure.Helpers.Common;
 public static class MapperHelper
 {
     public static IMapper GetInstance()

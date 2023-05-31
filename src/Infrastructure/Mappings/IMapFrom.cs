@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Note.Infrastructure.Mappings;
+namespace NoteIt.Infrastructure.Mappings;
 public interface IMapFrom<T>
 {
     void Mapping(Profile profile) => profile.CreateMap(typeof(T), GetType()).ReverseMap();

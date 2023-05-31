@@ -4,7 +4,7 @@ using FluentMigrator.Runner;
 using NLog.Extensions.Logging;
 using System.Reflection;
 
-namespace Note.Infrastructure.Migrations;
+namespace NoteIt.Infrastructure.Migrations;
 public static class DependencyInjection
 {
     public static IServiceCollection AddMigrations(this IServiceCollection services, IConfiguration configuration)

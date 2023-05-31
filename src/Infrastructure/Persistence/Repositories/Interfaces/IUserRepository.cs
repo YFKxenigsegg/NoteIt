@@ -1,6 +1,6 @@
-﻿using Note.Domain.Entities;
+﻿using NoteIt.Domain.Entities;
 
-namespace Note.Infrastructure.Persistence.Repositories.Interfaces;
+namespace NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
 public interface IUserRepository : IRepository<ApplicationUser>
 {
     void Update(ApplicationUser user);

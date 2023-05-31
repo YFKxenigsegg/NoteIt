@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Note.Domain.Entities;
+namespace NoteIt.Domain.Entities;
 public class ApplicationUser : IdentityUser
 {
     public override string Id { get; set; } = default!;

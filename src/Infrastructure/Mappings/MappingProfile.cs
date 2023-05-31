@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using System.Reflection;
 
-namespace Note.Infrastructure.Mappings;
+namespace NoteIt.Infrastructure.Mappings;
 public class MappingProfile : Profile
 {
     public MappingProfile()

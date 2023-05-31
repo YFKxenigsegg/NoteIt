@@ -1,2 +1,2 @@
-﻿namespace Note.Application.Handlers.Note;
+﻿namespace NoteIt.Application.Handlers.Note;
 public class GetAllRequest : IRequest<IEnumerable<NoteInfo>> { }

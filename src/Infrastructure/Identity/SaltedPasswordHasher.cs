@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Note.Domain.Entities;
+using NoteIt.Domain.Entities;
 
-namespace Note.Infrastructure.Identity;
+namespace NoteIt.Infrastructure.Identity;
 public class SaltedPasswordHasher : PasswordHasher<ApplicationUser>
 {
     private const string _salt = "D98EE44D-DCCE-496E-AAC6-178DA9CC3FA6";

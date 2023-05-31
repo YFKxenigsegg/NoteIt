@@ -1,6 +1,6 @@
-﻿//using Note.Domain.Entities;
+﻿//using NoteIt.Domain.Entities;
 
-//namespace Note.UnitTests.Infrastructure.Helpers;
+//namespace NoteIt.UnitTests.Infrastructure.Helpers;
 //public static class ApplicationUserHelper
 //{
 //    public static ApplicationUser GetOne(string id = "a482b697-cd0d-479b-95e2-16e3cd36a561")

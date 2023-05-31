@@ -1,4 +1,4 @@
-﻿namespace Note.Application.Models;
+﻿namespace NoteIt.Application.Models;
 public class Result
 {
     public bool Succeeded { get; set; }

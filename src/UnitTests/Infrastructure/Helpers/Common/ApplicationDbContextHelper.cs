@@ -1,9 +1,9 @@
 ﻿//using Microsoft.EntityFrameworkCore;
 //using Moq;
-//using Note.Infrastructure.Persistence;
-//using Note.Infrastructure.Persistence.Helpers.Interfaces;
+//using NoteIt.Infrastructure.Persistence;
+//using NoteIt.Infrastructure.Persistence.Helpers.Interfaces;
 
-//namespace Note.UnitTests.Infrastructure.Helpers.Common;
+//namespace NoteIt.UnitTests.Infrastructure.Helpers.Common;
 //public class ApplicationDbContextHelper
 //{
 //    public ApplicationDbContext DbContext { get; set; }

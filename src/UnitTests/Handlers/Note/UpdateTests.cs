@@ -1,9 +1,9 @@
-﻿using Note.Application.Handlers.Note;
-using Note.Application.Mappings;
-using Note.Infrastructure.Exceptions;
-using Note.UnitTests.Mocks;
+﻿using NoteIt.Application.Handlers.Note;
+using NoteIt.Application.Mappings;
+using NoteIt.Infrastructure.Exceptions;
+using NoteIt.UnitTests.Mocks;
 
-namespace Note.UnitTests.Handlers.Note;
+namespace NoteIt.UnitTests.Handlers.Note;
 public class UpdateTests
 {
     private readonly Mock<INoteRepository> _noteRepositoryMock;

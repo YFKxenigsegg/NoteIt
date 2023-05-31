@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Note.Domain.Entities;
+using NoteIt.Domain.Entities;
 
-namespace Note.Infrastructure.Persistence.Configurations;
+namespace NoteIt.Infrastructure.Persistence.Configurations;
 public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)

@@ -1,2 +1,2 @@
-﻿namespace Note.Application.Handlers.Role;
+﻿namespace NoteIt.Application.Handlers.Role;
 public class GetAllRequest : IRequest<IEnumerable<RoleInfo>> { }
