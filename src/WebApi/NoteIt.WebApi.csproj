@@ -49,4 +49,12 @@
 		<Copy SourceFiles="$(SourceAppSettingsConfigFile)" DestinationFiles="$(TargetAppSettingsConfigFile)" Condition="!Exists($(TargetAppSettingsConfigFile))" />
 	</Target>
 
+	<ItemGroup>
+	  <EditorConfigFiles Remove="D:\Work\Mirfin\Project\backofficeCore\src\WebApi\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="D:\Work\Mirfin\Project\backofficeCore\src\WebApi\.editorconfig" />
+	</ItemGroup>
+
 </Project>
