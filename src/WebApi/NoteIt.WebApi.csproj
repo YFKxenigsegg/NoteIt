@@ -19,6 +19,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
 		<PackageReference Include="NLog" Version="5.1.4" />
 		<PackageReference Include="NLog.Web.AspNetCore" Version="5.2.3" />
 		<PackageReference Include="NSwag.AspNetCore" Version="13.18.2" />
@@ -42,6 +43,9 @@
 		<TargetLogConfigFile>NLog.config</TargetLogConfigFile>
 		<SourceAppSettingsConfigFile>appsettings.json.template</SourceAppSettingsConfigFile>
 		<TargetAppSettingsConfigFile>appsettings.json</TargetAppSettingsConfigFile>
+		<UserSecretsId>fc10729a-4425-45fa-b861-16205a7ad20f</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">

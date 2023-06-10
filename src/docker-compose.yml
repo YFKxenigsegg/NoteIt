@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  noteit.webapi:
+    image: ${DOCKER_REGISTRY-}noteitwebapi
+    build:
+      context: .
+      dockerfile: WebApi/Dockerfile
