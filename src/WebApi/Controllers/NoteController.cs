@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using NoteIt.Application.Handlers.Note;
-using NoteIt.WebApi.Common;
+﻿using NoteIt.Application.Handlers.Note;
 
 namespace NoteIt.WebApi.Controllers;
 public class NoteController : ApiControllerBase

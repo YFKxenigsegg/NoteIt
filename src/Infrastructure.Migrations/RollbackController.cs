@@ -13,7 +13,11 @@ public class RollbackController : ControllerBase
     public RollbackController(
         ILogger<RollbackController> logger
         , IMigrationRunner migrationRunner
-        ) => (_logger, _migrationRunner) = (logger, migrationRunner);
+        )
+    { 
+        _logger = logger;
+        _migrationRunner = migrationRunner;
+    }
 
     [HttpGet]
     public ActionResult Rollback()

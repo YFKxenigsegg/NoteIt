@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using NoteIt.Application.Contracts.Persistence;
 using NoteIt.Domain.Common;
 using NoteIt.Domain.Entities;
 using System.Reflection;
@@ -15,16 +16,16 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
         DbContextOptions<ApplicationDbContext> options
         ) : base(options) { }
 
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         UpdateAuditableEntities();
         return base.SaveChangesAsync(cancellationToken);
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
     private void UpdateAuditableEntities()

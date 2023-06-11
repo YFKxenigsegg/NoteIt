@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using NoteIt.Application.Handlers.Account;
-using NoteIt.WebApi.Common;
+﻿using NoteIt.Application.Handlers.Account;
+using NoteIt.Application.Handlers.User.Login;
 
 namespace NoteIt.WebApi.Controllers;
 public class AccountController : ApiControllerBase

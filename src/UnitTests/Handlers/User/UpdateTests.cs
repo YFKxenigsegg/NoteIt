@@ -1,7 +1,4 @@
 ﻿using NoteIt.Application.Handlers.User;
-using NoteIt.Application.Mappings;
-using NoteIt.Infrastructure.Exceptions;
-using NoteIt.UnitTests.Mocks;
 
 namespace NoteIt.UnitTests.Handlers.User;
 public class UpdateTests

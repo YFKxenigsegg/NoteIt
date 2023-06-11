@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
+using NoteIt.Application.Contracts.Persistence;
 
 namespace NoteIt.Infrastructure.Persistence.Repositories;
 public class NoteRepository : INoteRepository

@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using NoteIt.Application.Handlers.Role;
-using NoteIt.WebApi.Common;
+﻿using NoteIt.Application.Handlers.Role;
 
 namespace NoteIt.WebApi.Controllers;
-
 public class RoleController : ApiControllerBase
 {
     [HttpPost]

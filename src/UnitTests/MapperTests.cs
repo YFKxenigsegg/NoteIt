@@ -1,8 +1,6 @@
 ﻿using NoteIt.Application.Handlers.Note;
 using NoteIt.Application.Handlers.Role;
 using NoteIt.Application.Handlers.User;
-using NoteIt.Application.Mappings;
-using NoteIt.Domain.Entities;
 using System.Runtime.Serialization;
 
 namespace NoteIt.UnitTests;

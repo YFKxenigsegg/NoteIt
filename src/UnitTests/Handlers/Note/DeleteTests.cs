@@ -1,6 +1,4 @@
 ﻿using NoteIt.Application.Handlers.Note;
-using NoteIt.Infrastructure.Exceptions;
-using NoteIt.UnitTests.Mocks;
 
 namespace NoteIt.UnitTests.Handlers.Note;
 public class DeleteTests
@@ -19,7 +17,7 @@ public class DeleteTests
         var handler = new DeleteHandler(_noteRepositoryMock.Object);
 
         // Act
-        var result = await handler.Handle(request, CancellationToken.None);
+        await handler.Handle(request, CancellationToken.None);
 
         // Assert
         _noteRepositoryMock.Verify(x => x.UnitOfWork.SaveChangesAsync(CancellationToken.None), Times.Once);

@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.UnitTests.Mocks;
-internal class RoleRepositoryMock
+internal static class RoleRepositoryMock
 {
     public static Mock<IRoleRepository> GetRoleRepositoryMock()
     {
@@ -41,13 +41,13 @@ internal class RoleRepositoryMock
         repoMock.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((string id, CancellationToken token) =>
             {
-                var role = roles.FirstOrDefault(x => x.Id == id);
+                var role = roles.Find(x => x.Id == id);
                 return role;
             });
         repoMock.Setup(x => x.GetByNameAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((string name, CancellationToken token) =>
             {
-                var role = roles.FirstOrDefault(x => x.Name == name);
+                var role = roles.Find(x => x.Name == name);
                 return role;
             });
 

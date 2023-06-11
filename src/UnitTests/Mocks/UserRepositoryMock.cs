@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.UnitTests.Mocks;
-public class UserRepositoryMock
+internal static class UserRepositoryMock
 {
     public static Mock<IUserRepository> GetUserRepositoryMock()
     {
@@ -48,13 +48,13 @@ public class UserRepositoryMock
         repoMock.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((string id, CancellationToken token) =>
             {
-                var role = users.FirstOrDefault(x => x.Id == id);
+                var role = users.Find(x => x.Id == id);
                 return role;
             });
         repoMock.Setup(x => x.GetByEmailAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((string email, CancellationToken token) =>
             {
-                var user = users.FirstOrDefault(x => x.Email == email);
+                var user = users.Find(x => x.Email == email);
                 return user;
             });
 

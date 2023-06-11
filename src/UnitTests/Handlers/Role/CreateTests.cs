@@ -1,7 +1,4 @@
 ﻿using NoteIt.Application.Handlers.Role;
-using NoteIt.Application.Mappings;
-using NoteIt.Infrastructure.Exceptions;
-using NoteIt.UnitTests.Mocks;
 
 namespace NoteIt.UnitTests.Handlers.Role;
 public class CreateTests

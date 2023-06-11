@@ -13,11 +13,10 @@ public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<UserInfo
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<UserInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
+    public Task<IEnumerable<UserInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
     {
         var users = _userRepository.GetAll();
         var result = _mapper.Map<IEnumerable<UserInfo>>(users);
-
-        return result;
+        return Task.FromResult(result);
     }
 }

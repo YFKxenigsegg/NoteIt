@@ -1,6 +1,4 @@
 ﻿using NoteIt.Application.Handlers.Note;
-using NoteIt.Application.Mappings;
-using NoteIt.UnitTests.Mocks;
 
 namespace NoteIt.UnitTests.Handlers.Note;
 public class CreateTests

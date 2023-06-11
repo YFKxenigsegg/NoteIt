@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NoteIt.Application.Contracts.Persistence;
 using NoteIt.Domain.Entities;
-using NoteIt.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace NoteIt.Infrastructure.Persistence.Repositories;
 public class RoleRepository : IRoleRepository

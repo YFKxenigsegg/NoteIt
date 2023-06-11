@@ -27,7 +27,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Auth\NoteIt.Auth.csproj" />
 		<ProjectReference Include="..\Infrastructure.Migrations\NoteIt.Infrastructure.Migrations.csproj" />
 		<ProjectReference Include="..\Infrastructure\NoteIt.Infrastructure.csproj" />
 		<ProjectReference Include="..\Application\NoteIt.Application.csproj" />

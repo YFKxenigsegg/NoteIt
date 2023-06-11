@@ -1,9 +1,9 @@
 ﻿namespace NoteIt.UnitTests.Mocks;
-public class NoteRepositoryMock
+internal static class NoteRepositoryMock
 {
     public static Mock<INoteRepository> GetNoteRepositoryMock()
     {
-        var notes = new List<Domain.Entities.Note>()
+        var notes = new List<Note>()
         {
             new()
             {
@@ -44,7 +44,7 @@ public class NoteRepositoryMock
         repoMock.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((string id, CancellationToken token) =>
             {
-                var note = notes.FirstOrDefault(x => x.Id == id);
+                var note = notes.Find(x => x.Id == id);
                 return note;
             });
 

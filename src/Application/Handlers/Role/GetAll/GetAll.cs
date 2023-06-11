@@ -13,11 +13,10 @@ public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<RoleInfo
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<RoleInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
+    public Task<IEnumerable<RoleInfo>> Handle(GetAllRequest request, CancellationToken cancellationToken)
     {
         var notes = _roleRepository.GetAll();
         var result = _mapper.Map<IEnumerable<RoleInfo>>(notes);
-
-        return result;
+        return Task.FromResult(result);
     }
 }
