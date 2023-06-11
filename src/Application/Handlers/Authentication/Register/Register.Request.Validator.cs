@@ -1,10 +1,12 @@
-﻿namespace NoteIt.Application.Handlers.User.Login;
-public class LoginRequestValidator : AbstractValidator<LoginRequest>
+﻿namespace NoteIt.Application.Handlers.Authentication.Register;
+public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
 {
-    public LoginRequestValidator()
+    public RegisterRequestValidator()
     {
-        RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required.")
-            .EmailAddress().WithMessage("A valid email is required.")
+        RuleFor(x => x.UserName).NotEmpty().WithMessage("Email is required");
+        
+        RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required")
+            .EmailAddress().WithMessage("A valid email is required")
             .MaximumLength(24).WithMessage("Email should be equal or less than 12 letters");
 
         RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required.")
@@ -13,6 +15,7 @@ public class LoginRequestValidator : AbstractValidator<LoginRequest>
             .Matches(@"[A-Z]+").WithMessage("Password must contain at least one uppercase letter.")
             .Matches(@"[a-z]+").WithMessage("Password must contain at least one lowercase letter.")
             .Matches(@"[0-9]+").WithMessage("Password must contain at least one number.")
-            .Matches(@"[\!\?\*\@\$\%\#\.]+").WithMessage("Password must contain at least one ('!', '?', '*', '@', '$', '%', '#' '.').");
+            .Matches(@"[\!\?\*\@\$\%\#\.]+").WithMessage("Password must contain at least one ('!', '?', '*', '@', '$', '%', '#' '.').")
+            .Equal(x => x.ConfirmPassword).WithMessage("Passwords must match.");
     }
 }

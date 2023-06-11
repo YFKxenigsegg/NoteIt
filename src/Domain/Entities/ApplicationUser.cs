@@ -4,6 +4,8 @@ namespace NoteIt.Domain.Entities;
 public class ApplicationUser : IdentityUser
 {
     public override string Id { get; set; } = default!;
+    public override string? UserName { get; set; } = default!;
+    public override string? NormalizedUserName { get; set; } = default!;
     public override string? Email { get; set; } = default!;
     public override string? PasswordHash { get; set; } = default!;
     public DateTime Created { get; set; }

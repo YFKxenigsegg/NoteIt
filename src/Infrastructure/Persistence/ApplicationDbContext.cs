@@ -1,11 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using NoteIt.Application.Contracts.Persistence;
-using NoteIt.Domain.Common;
-using NoteIt.Domain.Entities;
-using System.Reflection;
-
-namespace NoteIt.Infrastructure.Persistence;
+﻿namespace NoteIt.Infrastructure.Persistence;
 public class ApplicationDbContext : DbContext, IUnitOfWork
 {
     public DbSet<ApplicationUser> Users { get; set; }

@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using NoteIt.Application.Models;
-
-namespace NoteIt.Auth.Identity;
+﻿namespace NoteIt.Auth.Identity;
 public static class IdentityResultExtensions
 {
     public static Result ToApplicationResult(this IdentityResult result)

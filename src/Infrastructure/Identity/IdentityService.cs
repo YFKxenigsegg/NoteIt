@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using NoteIt.Application.Models;
-using NoteIt.Domain.Entities;
 
 namespace NoteIt.Auth.Identity;
 public class IdentityService : IIdentityService

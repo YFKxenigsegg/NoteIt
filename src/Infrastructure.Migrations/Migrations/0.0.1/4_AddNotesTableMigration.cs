@@ -1,7 +1,5 @@
-﻿using FluentMigrator;
-
-namespace NoteIt.Infrastructure.Migrations;
-[VersionedMigration(0, 0, 1, 3, "Add Notes table")]
+﻿namespace NoteIt.Infrastructure.Migrations;
+[VersionedMigration(0, 0, 1, 4, "Add Notes table")]
 public class AddNotesTableMigration : Migration
 {
     public override void Up()

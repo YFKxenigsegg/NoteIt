@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace NoteIt.Auth.Identity;
-internal class KeyNormalizer : ILookupNormalizer //?
+﻿namespace NoteIt.Auth.Identity;
+internal class KeyNormalizer : ILookupNormalizer
 {
     public string? NormalizeEmail(string? email) => email;
 

@@ -9,6 +9,7 @@ public class SaltedPasswordHasher : PasswordHasher<ApplicationUser>
     public override string HashPassword(ApplicationUser user, string password)
         => CryptographyExtension.CreateHash(password + _salt);
 
-    public bool Verify(string providedPassword, string hashedPassword)
-        => CryptographyExtension.Verify(providedPassword + _salt, hashedPassword);
+    public override PasswordVerificationResult VerifyHashedPassword(ApplicationUser user, string hashedPassword, string providedPassword) =>
+        CryptographyExtension.Verify(providedPassword + _salt, hashedPassword)
+            ? PasswordVerificationResult.Success : PasswordVerificationResult.Failed;
 }

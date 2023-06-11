@@ -1,8 +1,8 @@
-﻿using NoteIt.Application.Handlers.Account;
-using NoteIt.Application.Handlers.User.Login;
+﻿using NoteIt.Application.Handlers.Authentication.Login;
+using NoteIt.Application.Handlers.Authentication.Register;
 
 namespace NoteIt.WebApi.Controllers;
-public class AccountController : ApiControllerBase
+public class AuthenticationController : ApiControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> Register(RegisterRequest request, CancellationToken cancellationToken)

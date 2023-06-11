@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NoteIt.Domain.Entities;
-
-namespace NoteIt.Infrastructure.Persistence.Configurations;
+﻿namespace NoteIt.Infrastructure.Persistence.Configurations;
 public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
@@ -15,6 +11,16 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
             .IsRequired()
             .HasMaxLength(36)
             .ValueGeneratedOnAdd();
+
+        builder.Property(x => x.UserName)
+            .HasColumnType("nvarchar")
+            .IsRequired()
+            .HasMaxLength(16);
+
+        builder.Property(x => x.NormalizedUserName)
+           .HasColumnType("nvarchar")
+           .IsRequired()
+           .HasMaxLength(16);
 
         builder.Property(x => x.Email)
             .HasColumnType("nvarchar")
@@ -44,11 +50,9 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
         builder.Ignore(x => x.LockoutEnabled);
         builder.Ignore(x => x.LockoutEnd);
         builder.Ignore(x => x.NormalizedEmail);
-        builder.Ignore(x => x.NormalizedUserName);
         builder.Ignore(x => x.PhoneNumberConfirmed);
         builder.Ignore(x => x.SecurityStamp);
         builder.Ignore(x => x.TwoFactorEnabled);
-        builder.Ignore(x => x.UserName);
         builder.Ignore(x => x.PhoneNumber);
     }
 }

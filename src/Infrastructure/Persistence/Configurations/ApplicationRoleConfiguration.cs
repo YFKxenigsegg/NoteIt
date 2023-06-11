@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NoteIt.Domain.Entities;
-
-namespace NoteIt.Infrastructure.Persistence.Configurations;
+﻿namespace NoteIt.Infrastructure.Persistence.Configurations;
 public class ApplicationRoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
 {
     public void Configure(EntityTypeBuilder<ApplicationRole> builder)

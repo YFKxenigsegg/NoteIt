@@ -1,13 +1,9 @@
-﻿using FluentMigrator;
-
-namespace NoteIt.Infrastructure.Migrations;
-[VersionedMigration(0, 0, 1, 1, "Add identity tables")]
+﻿namespace NoteIt.Infrastructure.Migrations;
+[VersionedMigration(0, 0, 1, 2, "Add identity tables")]
 public class AddIdentityTablesMigration : Migration
 {
     public override void Up()
     {
-        Delete.Table("__EFMigrationsHistory");
-
         Create.Table("Roles")
             .WithColumn("Id").AsFixedLengthString(36).NotNullable()
                 .PrimaryKey("PK_Roles_Id")
@@ -17,6 +13,8 @@ public class AddIdentityTablesMigration : Migration
         Create.Table("Users")
             .WithColumn("Id").AsFixedLengthString(36).NotNullable()
                 .PrimaryKey("PK_Users_Id")
+            .WithColumn("UserName").AsString(16).NotNullable()
+            .WithColumn("NormalizedUserName").AsString(16).NotNullable()
             .WithColumn("Email").AsString(24).NotNullable()
                 .Unique("IX_Users_Email")
             .WithColumn("PasswordHash").AsString(96).NotNullable()
@@ -31,10 +29,5 @@ public class AddIdentityTablesMigration : Migration
     {
         Delete.Table("Users");
         Delete.Table("Roles");
-
-        Create.Table("__EFMigrationsHistory")
-            .WithColumn("MigrationId").AsString(150).NotNullable()
-        .PrimaryKey("PK___EFMigrationsHistory")
-            .WithColumn("ProductVersion").AsString(32).NotNullable();
     }
 }

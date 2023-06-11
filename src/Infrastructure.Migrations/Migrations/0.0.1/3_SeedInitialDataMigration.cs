@@ -1,7 +1,5 @@
-﻿using FluentMigrator;
-
-namespace NoteIt.Infrastructure.Migrations;
-[VersionedMigration(0, 0, 1, 2, "Seed initial data")]
+﻿namespace NoteIt.Infrastructure.Migrations;
+[VersionedMigration(0, 0, 1, 3, "Seed initial data")]
 public class SeedInitialDataMigration : Migration
 {
     public override void Up()

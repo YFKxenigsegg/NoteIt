@@ -1,9 +1,7 @@
-﻿using NoteIt.Application.Handlers.Account;
-
-namespace NoteIt.Application.Handlers.User.Register;
-public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
+﻿namespace NoteIt.Application.Handlers.Authentication.Login;
+public class LoginRequestValidator : AbstractValidator<LoginRequest>
 {
-    public RegisterRequestValidator()
+    public LoginRequestValidator()
     {
         RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required.")
             .EmailAddress().WithMessage("A valid email is required.")
@@ -15,7 +13,6 @@ public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
             .Matches(@"[A-Z]+").WithMessage("Password must contain at least one uppercase letter.")
             .Matches(@"[a-z]+").WithMessage("Password must contain at least one lowercase letter.")
             .Matches(@"[0-9]+").WithMessage("Password must contain at least one number.")
-            .Matches(@"[\!\?\*\@\$\%\#\.]+").WithMessage("Password must contain at least one ('!', '?', '*', '@', '$', '%', '#' '.').")
-            .Equal(x => x.ConfirmPassword).WithMessage("Passwords must match.");
+            .Matches(@"[\!\?\*\@\$\%\#\.]+").WithMessage("Password must contain at least one ('!', '?', '*', '@', '$', '%', '#' '.').");
     }
 }

@@ -1,23 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using NoteIt.Application.Abstractions;
-using NoteIt.Application.Contracts.Persistence;
-using NoteIt.Application.Models;
-using NoteIt.Auth.Identity;
-using NoteIt.Domain.Entities;
-using NoteIt.Infrastructure.Authentication;
-using NoteIt.Infrastructure.Identity;
-using NoteIt.Infrastructure.Options;
-using NoteIt.Infrastructure.Persistence;
-using NoteIt.Infrastructure.Persistence.Repositories;
-using System.Net;
-
-namespace NoteIt.Infrastructure;
+﻿namespace NoteIt.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
@@ -28,15 +9,15 @@ public static class DependencyInjection
             .EnableSensitiveDataLogging(true)
         );
 
+        using var scope = services.BuildServiceProvider().CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        dbContext.Database.Migrate();
+
         services.AddScoped<INoteRepository, NoteRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddTransient<IJwtProvider, JwtProvider>();
-
-        using var scope = services.BuildServiceProvider().CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-        dbContext.Database.Migrate();
 
         //identity
         var authOptionsSection = configuration.GetSection("AuthOptions");
@@ -92,8 +73,7 @@ public static class DependencyInjection
                 };
             });
 
-        //services.AddTransient<IUserStore<ApplicationUser>, UserStore>();
-        //services.AddTransient<IUserEmailStore<ApplicationUser>, UserStore>();
+        services.AddTransient<IUserPasswordStore<ApplicationUser>, ApplicationUserStore>();
         //services.AddTransient<IRoleStore<ApplicationRole>, RoleStore>();
 
         return services;

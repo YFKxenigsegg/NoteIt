@@ -1,8 +1,4 @@
-﻿using FluentMigrator.Runner;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-namespace NoteIt.Infrastructure.Migrations;
+﻿namespace NoteIt.Infrastructure.Migrations;
 [ApiController]
 [Route("api/[controller]/[action]")]
 public class RollbackController : ControllerBase

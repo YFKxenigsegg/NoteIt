@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NoteIt.Domain.Common;
-
-namespace NoteIt.Infrastructure.Persistence.Configurations;
+﻿namespace NoteIt.Infrastructure.Persistence.Configurations;
 public class AuditableEntityBaseConfiguration<T> : IEntityTypeConfiguration<T>
     where T : AuditableEntityBase
 {

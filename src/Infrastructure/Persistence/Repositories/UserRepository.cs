@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NoteIt.Application.Contracts.Persistence;
-using NoteIt.Domain.Entities;
-
-namespace NoteIt.Infrastructure.Persistence.Repositories;
+﻿namespace NoteIt.Infrastructure.Persistence.Repositories;
 public class UserRepository : IUserRepository
 {
     private readonly ApplicationDbContext _dbContext;

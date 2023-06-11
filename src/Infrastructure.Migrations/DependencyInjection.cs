@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using FluentMigrator.Runner;
-using NLog.Extensions.Logging;
-using System.Reflection;
-
-namespace NoteIt.Infrastructure.Migrations;
+﻿namespace NoteIt.Infrastructure.Migrations;
 public static class DependencyInjection
 {
     public static IServiceCollection AddMigrations(this IServiceCollection services, IConfiguration configuration)
