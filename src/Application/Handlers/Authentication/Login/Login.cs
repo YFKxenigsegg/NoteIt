@@ -2,7 +2,7 @@
 using NoteIt.Application.Abstractions;
 
 namespace NoteIt.Application.Handlers.Authentication.Login;
-public class LoginHandler : IRequestHandler<LoginRequest, string>
+public sealed class LoginHandler : IRequestHandler<LoginRequest, string>
 {
     private readonly IUserRepository _userRepository;
     private readonly IJwtProvider _jwtProvider;

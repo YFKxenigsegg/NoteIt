@@ -1,7 +1,7 @@
 ﻿using NoteIt.Application.Contracts.Persistence;
 
 namespace NoteIt.Application.Handlers.Note;
-public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<NoteInfo>>
+public sealed class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<NoteInfo>>
 {
     private readonly INoteRepository _noteRepository;
     private readonly IMapper _mapper;

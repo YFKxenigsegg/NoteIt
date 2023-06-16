@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.Note;
-public class DeleteHandler : IRequestHandler<DeleteRequest, Unit>
+public sealed class DeleteHandler : IRequestHandler<DeleteRequest, Unit>
 {
     private readonly INoteRepository _noteRepository;
 

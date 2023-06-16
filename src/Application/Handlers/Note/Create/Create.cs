@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.Note;
-public class CreateHandler : IRequestHandler<CreateRequest, string>
+public sealed class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly INoteRepository _noteRepository;
     private readonly IMapper _mapper;

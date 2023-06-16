@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.User;
-public class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<UserInfo>>
+public sealed class GetAllHandler : IRequestHandler<GetAllRequest, IEnumerable<UserInfo>>
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;

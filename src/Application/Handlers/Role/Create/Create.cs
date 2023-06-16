@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.Role;
-public class CreateHandler : IRequestHandler<CreateRequest, string>
+public sealed class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly IRoleRepository _roleRepository;
     private readonly IMapper _mapper;

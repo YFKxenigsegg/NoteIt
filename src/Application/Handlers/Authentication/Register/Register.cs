@@ -2,7 +2,7 @@
 using NoteIt.Domain.Consts;
 
 namespace NoteIt.Application.Handlers.Authentication.Register;
-public class RegisterHandler : IRequestHandler<RegisterRequest, Unit>
+public sealed class RegisterHandler : IRequestHandler<RegisterRequest, Unit>
 {
     private readonly IUserRepository _userRepository;
     private readonly IRoleRepository _roleRepository;

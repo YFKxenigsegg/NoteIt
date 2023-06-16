@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.User;
-public class CreateHandler : IRequestHandler<CreateRequest, string>
+public sealed class CreateHandler : IRequestHandler<CreateRequest, string>
 {
     private readonly IUserRepository _userRepository;
     private readonly IRoleRepository _roleRepository;

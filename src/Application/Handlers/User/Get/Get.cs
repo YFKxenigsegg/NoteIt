@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.User;
-public class GetHandler : IRequestHandler<GetRequest, UserInfo>
+public sealed class GetHandler : IRequestHandler<GetRequest, UserInfo>
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;

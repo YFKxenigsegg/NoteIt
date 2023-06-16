@@ -1,5 +1,5 @@
 ﻿namespace NoteIt.Application.Handlers.Note;
-public class UpdateHandler : IRequestHandler<UpdateRequest, NoteInfo>
+public sealed class UpdateHandler : IRequestHandler<UpdateRequest, NoteInfo>
 {
     private readonly INoteRepository _noteRepository;
     private readonly IMapper _mapper;
