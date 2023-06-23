@@ -34,8 +34,8 @@ internal static class NoteRepositoryMock
         repoMock.Setup(x => x.UnitOfWork).Returns(uow.Object);
         repoMock.Setup(x => x.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
         repoMock.Setup(x => x.GetAll()).Returns(notes.AsEnumerable());
-        repoMock.Setup(x => x.Add(It.IsAny<Domain.Entities.Note>()))
-            .Returns((Domain.Entities.Note note) =>
+        repoMock.Setup(x => x.Add(It.IsAny<Note>()))
+            .Returns((Note note) =>
             {
                 note.Id = "00000000-0000-0000-0000-000000000004";
                 notes.Add(note);
