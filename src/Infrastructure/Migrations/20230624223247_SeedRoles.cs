@@ -25,10 +25,10 @@ namespace NoteIt.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql(@"DELETE FROM AspNetRoles
-                                   WHERE Name = administrator");
+                                   WHERE Name = 'administrator'");
 
             migrationBuilder.Sql(@"DELETE FROM AspNetRoles
-                                   WHERE Name = user");
+                                   WHERE Name = 'user'");
         }
     }
 }
