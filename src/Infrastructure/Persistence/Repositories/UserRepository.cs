@@ -10,31 +10,31 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
-    public ApplicationUser Add(ApplicationUser user)
+    public User Add(User user)
     {
         return _dbContext.Users.Add(user).Entity;
     }
 
-    public void Update(ApplicationUser user)
+    public void Update(User user)
     {
         _dbContext.Entry(user).State = EntityState.Modified;
     }
 
-    public async Task<ApplicationUser?> GetAsync(string id, CancellationToken cancellationToken = default)
+    public async Task<User?> GetAsync(string id, CancellationToken cancellationToken = default)
     {
         return await _dbContext.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task<ApplicationUser?> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
+    public async Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
         return await _dbContext.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
     }
 
-    public IEnumerable<ApplicationUser> GetAll()
+    public IEnumerable<User> GetAll()
     {
         return _dbContext.Users.AsEnumerable();
     }

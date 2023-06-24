@@ -1,4 +1,4 @@
-﻿using NoteIt.Application.Handlers.Note;
+﻿using NoteIt.Application.Handlers.Notes;
 
 namespace NoteIt.WebApi.Controllers;
 public class NoteController : ApiControllerBase

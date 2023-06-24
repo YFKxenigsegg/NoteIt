@@ -1,18 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using NoteIt.Application.Handlers.Authentication.Register;
-using NoteIt.Domain.Consts;
+using NoteIt.Application.Handlers.Authentication;
 
 namespace NoteIt.UnitTests.Handlers.Authentication;
 public class RegisterTests
 {
-    private readonly Mock<IUserRepository> _userRepositoryMock;
-    private readonly Mock<IRoleRepository> _roleRepositoryMock;
-    private readonly Mock<UserManager<ApplicationUser>> _userManagerMock;
+    private readonly Mock<UserManager<User>> _userManagerMock;
 
     public RegisterTests()
     {
-        _userRepositoryMock = UserRepositoryMock.GetUserRepositoryMock();
-        _roleRepositoryMock = RoleRepositoryMock.GetRoleRepositoryMock();
         _userManagerMock = AuthenticationMock.GetUserManagerMock();
     }
 
@@ -20,11 +15,8 @@ public class RegisterTests
     public async Task Register_Successful()
     {
         // Arrange
-        _roleRepositoryMock.Setup(x => x.GetByNameAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new ApplicationRole { Id = "Id" });
-
         var request = new RegisterRequest() { UserName = "UserName-1", Email = "Email-4", Password = "Val1dP@ss!", ConfirmPassword = "Val1dP@ss!" };
-        var handler = new RegisterHandler(_userRepositoryMock.Object, _roleRepositoryMock.Object, _userManagerMock.Object);
+        var handler = new RegisterHandler(_userManagerMock.Object);
 
         // Act
         var result = await handler.Handle(request, CancellationToken.None);
@@ -38,7 +30,7 @@ public class RegisterTests
     {
         // Arrange
         var request = new RegisterRequest() { UserName = "UserName-1", Email = "Email-1", Password = "Val1dP@ss!", ConfirmPassword = "Val1dP@ss!" };
-        var handler = new RegisterHandler(_userRepositoryMock.Object, _roleRepositoryMock.Object, _userManagerMock.Object);
+        var handler = new RegisterHandler(_userManagerMock.Object);
 
         // Assert
         var exception = await Assert.ThrowsAsync<AlreadyExistException>(async () =>
@@ -53,10 +45,8 @@ public class RegisterTests
     public async Task Throw_BadRequestException_For_Invalid_Registration()
     {
         // Arrange
-        _roleRepositoryMock.Setup(x => x.GetByNameAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new ApplicationRole { Id = "Id" });
         var request = new RegisterRequest() { UserName = "UserName-4", Email = "Email-4", Password = "Val1dP@ss!", ConfirmPassword = "Val1dP@ss!" };
-        var handler = new RegisterHandler(_userRepositoryMock.Object, _roleRepositoryMock.Object, _userManagerMock.Object);
+        var handler = new RegisterHandler(_userManagerMock.Object);
 
         // Assert
         var exception = await Assert.ThrowsAsync<BadRequestException>(async () =>

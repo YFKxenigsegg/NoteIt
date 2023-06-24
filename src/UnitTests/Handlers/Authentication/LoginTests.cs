@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using NoteIt.Application.Abstractions;
-using NoteIt.Application.Handlers.Authentication.Login;
+using NoteIt.Application.Handlers.Authentication;
 
 namespace NoteIt.UnitTests.Handlers.Authentication;
 public class LoginTests
 {
-    private readonly Mock<IUserRepository> _userRepositoryMock;
     private readonly Mock<IJwtProvider> _jwtProviderMock;
-    private readonly Mock<UserManager<ApplicationUser>> _userManagerMock;
+    private readonly Mock<UserManager<Domain.Entities.User>> _userManagerMock;
 
     public LoginTests()
     {
-        _userRepositoryMock = UserRepositoryMock.GetUserRepositoryMock();
         _jwtProviderMock = AuthenticationMock.GetJwtProviderMock();
         _userManagerMock = AuthenticationMock.GetUserManagerMock();
     }
@@ -21,7 +19,7 @@ public class LoginTests
     {
         // Arrange
         var request = new LoginRequest() { Email = "Email-1", Password = "Val1dP@ss!" };
-        var handler = new LoginHandler(_userRepositoryMock.Object, _jwtProviderMock.Object, _userManagerMock.Object);
+        var handler = new LoginHandler(_jwtProviderMock.Object, _userManagerMock.Object);
 
         // Act
         var result = await handler.Handle(request, CancellationToken.None);
@@ -35,7 +33,7 @@ public class LoginTests
     {
         // Arrange
         var request = new LoginRequest() { Email = "Email-4", Password = "Val1dP@ss!" };
-        var handler = new LoginHandler(_userRepositoryMock.Object, _jwtProviderMock.Object, _userManagerMock.Object);
+        var handler = new LoginHandler(_jwtProviderMock.Object, _userManagerMock.Object);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(async () =>
@@ -50,9 +48,9 @@ public class LoginTests
     public async Task Throw_BadRequestException_For_Invalid_Password()
     {
         // Arrange
-        _userManagerMock.Setup(x => x.CheckPasswordAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>())).ReturnsAsync(false);
+        _userManagerMock.Setup(x => x.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).ReturnsAsync(false);
         var request = new LoginRequest() { Email = "Email-1", Password = "InVal1dP@ss!" };
-        var handler = new LoginHandler(_userRepositoryMock.Object, _jwtProviderMock.Object, _userManagerMock.Object);
+        var handler = new LoginHandler(_jwtProviderMock.Object, _userManagerMock.Object);
 
         // Assert
         var exception = await Assert.ThrowsAsync<BadRequestException>(async () =>

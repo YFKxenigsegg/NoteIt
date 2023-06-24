@@ -13,9 +13,9 @@ public static class DependencyInjection
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         dbContext.Database.Migrate();
 
-        services.AddScoped<INoteRepository, NoteRepository>();
-        services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<INoteRepository, NoteRepository>();
 
         services.AddTransient<IJwtProvider, JwtProvider>();
 
@@ -24,10 +24,10 @@ public static class DependencyInjection
         services.AddOptions();
         services.Configure<AuthOptions>(authOptionsSection);
 
-        services.AddScoped<IPasswordHasher<ApplicationUser>, SaltedPasswordHasher>();
+        services.AddScoped<IPasswordHasher<User>, SaltedPasswordHasher>();
         services.AddScoped<ILookupNormalizer, KeyNormalizer>();
 
-        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+        services.AddIdentity<User, IdentityRole>(options =>
         {
             options.Password.RequireDigit = true;
             options.Password.RequireLowercase = true;
@@ -72,9 +72,6 @@ public static class DependencyInjection
                     }
                 };
             });
-
-        services.AddTransient<IUserPasswordStore<ApplicationUser>, ApplicationUserStore>();
-        //services.AddTransient<IRoleStore<ApplicationRole>, RoleStore>();
 
         return services;
     }

@@ -1,6 +1,5 @@
-﻿using NoteIt.Application.Handlers.Note;
-using NoteIt.Application.Handlers.Role;
-using NoteIt.Application.Handlers.User;
+﻿using NoteIt.Application.Handlers.Notes;
+using NoteIt.Application.Handlers.Users;
 using System.Runtime.Serialization;
 
 namespace NoteIt.UnitTests;
@@ -21,24 +20,10 @@ public class MapperTests
     // Note
     [InlineData(typeof(Note), typeof(NoteInfo))]
     [InlineData(typeof(NoteInfo), typeof(Note))]
-    [InlineData(typeof(Application.Handlers.Note.CreateRequest), typeof(Note))]
-    [InlineData(typeof(Note), typeof(Application.Handlers.Note.CreateRequest))]
-    [InlineData(typeof(Application.Handlers.Note.UpdateRequest), typeof(Note))]
-    [InlineData(typeof(Note), typeof(Application.Handlers.Note.UpdateRequest))]
-
-    // Role
-    [InlineData(typeof(ApplicationRole), typeof(RoleInfo))]
-    [InlineData(typeof(RoleInfo), typeof(ApplicationRole))]
-    [InlineData(typeof(Application.Handlers.Role.CreateRequest), typeof(ApplicationRole))]
-    [InlineData(typeof(ApplicationRole), typeof(Application.Handlers.Role.CreateRequest))]
 
     // User
-    [InlineData(typeof(ApplicationUser), typeof(UserInfo))]
-    [InlineData(typeof(UserInfo), typeof(ApplicationUser))]
-    [InlineData(typeof(Application.Handlers.User.CreateRequest), typeof(ApplicationUser))]
-    //[InlineData(typeof(ApplicationUser), typeof(Application.Handlers.User.CreateRequest))]
-    //[InlineData(typeof(Application.Handlers.User.UpdateRequest), typeof(ApplicationUser))]
-    //[InlineData(typeof(ApplicationUser), typeof(Application.Handlers.User.UpdateRequest))]
+    [InlineData(typeof(User), typeof(UserInfo))]
+    [InlineData(typeof(UserInfo), typeof(User))]
     public void ShouldSupportMapingFromSrcToDest(Type src, Type dest)
     {
         var instance = GetInstanceOf(src);

@@ -1,8 +1,6 @@
-﻿using NoteIt.Domain.Common;
-
-namespace NoteIt.Domain.Entities;
+﻿namespace NoteIt.Domain.Entities;
 public class Note : AuditableEntityBase
 {
-    public string Name { get; set; } = default!;
-    public string Url { get; set; } = default!;
+    public required string Name { get; set; }
+    public required string Url { get; set; }
 }

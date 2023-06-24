@@ -1,6 +1,6 @@
-﻿namespace NoteIt.Application.Handlers.Authentication.Login;
-public class LoginRequest : IRequest<string>
+﻿namespace NoteIt.Application.Handlers.Authentication;
+public class LoginRequest : IRequest<JwtInfo>
 {
-    public string Email { get; set; } = default!;
-    public string Password { get; set; } = default!;
+    public required string Email { get; set; }
+    public required string Password { get; set; }
 }

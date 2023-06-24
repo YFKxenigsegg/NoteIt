@@ -10,30 +10,33 @@ public class NoteRepository : INoteRepository
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
-    public void Update(Domain.Entities.Note note)
+    public void Update(Note note)
     {
         _dbContext.Entry(note).State = EntityState.Modified;
     }
 
-    public void Delete(Domain.Entities.Note note)
+    public void Delete(Note note)
     {
         _dbContext.Entry(note).State = EntityState.Deleted;
     }
 
-    public Domain.Entities.Note Add(Domain.Entities.Note note)
+    public Note Add(Note note)
     {
-        return _dbContext.Notes.Add(note).Entity;
+        //return _dbContext.Notes.Add(note).Entity;
+        throw new NotImplementedException();
     }
 
-    public async Task<Domain.Entities.Note?> GetAsync(string id, CancellationToken cancellationToken = default)
+    public async Task<Note?> GetAsync(string id, CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Notes
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        //return await _dbContext.Notes
+        //    .AsNoTracking()
+        //    .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        throw new NotImplementedException();
     }
 
-    public IEnumerable<Domain.Entities.Note> GetAll()
+    public IEnumerable<Note> GetAll()
     {
-        return _dbContext.Notes.AsEnumerable();
+        //return _dbContext.Notes.AsEnumerable();
+        throw new NotImplementedException();
     }
 }

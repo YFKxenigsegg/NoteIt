@@ -1,5 +1,4 @@
-﻿using NoteIt.Application.Handlers.Authentication.Login;
-using NoteIt.Application.Handlers.Authentication.Register;
+﻿using NoteIt.Application.Handlers.Authentication;
 
 namespace NoteIt.WebApi.Controllers;
 public class AuthenticationController : ApiControllerBase

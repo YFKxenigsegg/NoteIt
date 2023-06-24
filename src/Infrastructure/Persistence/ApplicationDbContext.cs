@@ -1,9 +1,7 @@
 ﻿namespace NoteIt.Infrastructure.Persistence;
-public class ApplicationDbContext : DbContext, IUnitOfWork
+public class ApplicationDbContext : IdentityDbContext<User>, IUnitOfWork
 {
-    public DbSet<ApplicationUser> Users { get; set; }
-    public DbSet<ApplicationRole> Roles { get; set; }
-    public DbSet<Note> Notes { get; set; }
+    //public DbSet<Note> Notes { get; set; }
 
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options
@@ -15,10 +13,10 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
         return base.SaveChangesAsync(cancellationToken);
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.OnModelCreating(builder);
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
     private void UpdateAuditableEntities()

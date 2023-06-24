@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using NoteIt.Application.Handlers.Authentication;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
@@ -13,19 +14,25 @@ public sealed class JwtProvider : IJwtProvider
         _authOptions = authOptions.Value;
     }
 
-    public string GenerateJwtToken(ApplicationUser user)
+    public JwtInfo GenerateJwt(User user)
     {
         var symmetricSecurityKey = _authOptions.GetSymmetricSecurityKey();
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+            Subject = new ClaimsIdentity(new[]
+            {
+                new Claim(ClaimTypes.Email, user.Email!),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            }),
             Expires = DateTime.UtcNow.AddMinutes(_authOptions.AccessTokenExpireTimeSpanInMinutes),
-            SigningCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature)
+            SigningCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256)
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
+        var jwtInfo = new JwtInfo { Token = tokenHandler.WriteToken(token), Expiration = token.ValidTo };
+
+        return jwtInfo;
     }
 
     public string? ValidateJwtToken(string? token)

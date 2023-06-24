@@ -1,9 +1,9 @@
 ﻿namespace NoteIt.Application.Contracts.Persistence;
-public interface IUserRepository : IRepository<ApplicationUser>
+public interface IUserRepository : IRepository<User>
 {
-    void Update(ApplicationUser user);
-    ApplicationUser Add(ApplicationUser user);
-    Task<ApplicationUser?> GetAsync(string id, CancellationToken cancellationToken = default);
-    Task<ApplicationUser?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
-    IEnumerable<ApplicationUser> GetAll();
+    void Update(User user);
+    User Add(User user);
+    Task<User?> GetAsync(string id, CancellationToken cancellationToken = default);
+    Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+    IEnumerable<User> GetAll();
 }

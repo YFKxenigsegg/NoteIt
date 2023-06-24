@@ -8,7 +8,6 @@ global using NLog.Web;
 global using NoteIt.Application;
 global using NoteIt.Application.Exceptions.Filter;
 global using NoteIt.Infrastructure;
-global using NoteIt.Infrastructure.Migrations;
 global using NoteIt.Infrastructure.Persistence;
 global using NoteIt.WebApi.Common;
 global using NSwag;

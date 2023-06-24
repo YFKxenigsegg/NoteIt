@@ -3,31 +3,28 @@ internal static class UserRepositoryMock
 {
     public static Mock<IUserRepository> GetUserRepositoryMock()
     {
-        var users = new List<ApplicationUser>()
+        var users = new List<User>()
         {
             new()
             {
                  Id = "00000000-0000-0000-0000-000000000001",
                  Email = "Email-1",
                  PasswordHash = "PasswordHash-1",
-                 Created = DateTime.UtcNow,
-                 RoleId = "00000000-0000-0000-0000-000000000001"
+                 Created = DateTime.UtcNow
             },
             new()
             {
                  Id = "00000000-0000-0000-0000-000000000002",
                  Email = "Email-2",
                  PasswordHash = "PasswordHash-2",
-                 Created = DateTime.UtcNow,
-                 RoleId = "00000000-0000-0000-0000-000000000002"
+                 Created = DateTime.UtcNow
             },
             new()
             {
                 Id = "00000000-0000-0000-0000-000000000003",
                 Email = "Email-3",
                 PasswordHash = "PasswordHash-3",
-                Created = DateTime.UtcNow,
-                RoleId = "00000000-0000-0000-0000-000000000001"
+                Created = DateTime.UtcNow
             }
         };
 
@@ -37,11 +34,10 @@ internal static class UserRepositoryMock
         repoMock.Setup(x => x.UnitOfWork).Returns(uow.Object);
         repoMock.Setup(x => x.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
         repoMock.Setup(x => x.GetAll()).Returns(users.AsEnumerable());
-        repoMock.Setup(x => x.Add(It.IsAny<ApplicationUser>()))
-            .Returns((ApplicationUser user) =>
+        repoMock.Setup(x => x.Add(It.IsAny<User>()))
+            .Returns((User user) =>
             {
                 user.Id = "00000000-0000-0000-0000-000000000004";
-                user.RoleId = "00000000-0000-0000-0000-000000000004";
                 users.Add(user);
                 return user;
             });

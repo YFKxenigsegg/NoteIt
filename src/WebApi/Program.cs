@@ -8,7 +8,6 @@ try
 
     builder.Services.AddApplication(builder.Configuration);
     builder.Services.AddInfrastructure(builder.Configuration);
-    builder.Services.AddMigrations(builder.Configuration);
 
     builder.Services.AddControllers(optons =>
         optons.Filters.Add(new ApiExceptionFilter()));

@@ -1,6 +1,8 @@
-﻿namespace NoteIt.Application.Abstractions;
+﻿using NoteIt.Application.Handlers.Authentication;
+
+namespace NoteIt.Application.Abstractions;
 public interface IJwtProvider
 {
-    string GenerateJwtToken(ApplicationUser user);
+    JwtInfo GenerateJwt(User user);
     string? ValidateJwtToken(string? token);
 }

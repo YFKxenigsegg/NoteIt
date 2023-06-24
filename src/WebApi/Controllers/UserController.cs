@@ -1,4 +1,4 @@
-﻿using NoteIt.Application.Handlers.User;
+﻿using NoteIt.Application.Handlers.Users;
 
 namespace NoteIt.WebApi.Controllers;
 public class UserController : ApiControllerBase

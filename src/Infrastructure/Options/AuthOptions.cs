@@ -14,5 +14,5 @@ public class AuthOptions
     public string WindowsAuthServerUrl { get; set; } = default!;
 
     public SymmetricSecurityKey GetSymmetricSecurityKey() =>
-        new(Encoding.ASCII.GetBytes(Key));
+        new(Encoding.UTF8.GetBytes(Key));
 }
