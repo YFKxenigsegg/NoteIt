@@ -1,7 +1,7 @@
 ﻿namespace NoteIt.Infrastructure.Persistence;
 public class ApplicationDbContext : IdentityDbContext<User>, IUnitOfWork
 {
-    //public DbSet<Note> Notes { get; set; }
+    public DbSet<Note> Notes { get; set; }
 
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options
