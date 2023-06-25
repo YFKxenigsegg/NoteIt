@@ -12,7 +12,6 @@ COPY ["Auth/NoteIt.Auth.csproj", "Auth/"]
 COPY ["Application/NoteIt.Application.csproj", "Application/"]
 COPY ["Domain/NoteIt.Domain.csproj", "Domain/"]
 COPY ["Infrastructure/NoteIt.Infrastructure.csproj", "Infrastructure/"]
-COPY ["Infrastructure.Migrations/NoteIt.Infrastructure.Migrations.csproj", "Infrastructure.Migrations/"]
 RUN dotnet restore "WebApi/NoteIt.WebApi.csproj"
 COPY . .
 WORKDIR "/src/WebApi"
