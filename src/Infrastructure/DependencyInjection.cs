@@ -19,7 +19,6 @@ public static class DependencyInjection
 
         services.AddTransient<IJwtProvider, JwtProvider>();
 
-        //identity
         var authOptionsSection = configuration.GetSection("AuthOptions");
         services.AddOptions();
         services.Configure<AuthOptions>(authOptionsSection);
@@ -27,40 +26,40 @@ public static class DependencyInjection
         services.AddScoped<IPasswordHasher<User>, SaltedPasswordHasher>();
         services.AddScoped<ILookupNormalizer, KeyNormalizer>();
 
-        services.AddIdentity<User, IdentityRole>(options =>
+        services.AddIdentity<User, IdentityRole>(opt =>
         {
-            options.Password.RequireDigit = true;
-            options.Password.RequireLowercase = true;
-            options.Password.RequireNonAlphanumeric = true;
-            options.Password.RequireUppercase = true;
-            options.Password.RequiredLength = 8;
-            options.Lockout.MaxFailedAccessAttempts = 5;
+            opt.Password.RequireDigit = true;
+            opt.Password.RequireLowercase = true;
+            opt.Password.RequireNonAlphanumeric = true;
+            opt.Password.RequireUppercase = true;
+            opt.Password.RequiredLength = 8;
+            opt.Lockout.MaxFailedAccessAttempts = 5;
         })
         .AddEntityFrameworkStores<ApplicationDbContext>();
 
-        services.AddAuthentication(options =>
+        services.AddAuthentication(opt =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
-            .AddJwtBearer(options =>
+            .AddJwtBearer(opt =>
             {
                 var authOptons = authOptionsSection.Get<AuthOptions>();
-                options.RequireHttpsMetadata = false;
-                options.SaveToken = true;
-                options.TokenValidationParameters = new()
+                opt.RequireHttpsMetadata = false;
+                opt.SaveToken = true;
+                opt.TokenValidationParameters = new()
                 {
-                    ValidateIssuer = true,
+                    ValidateIssuer = false,
                     ValidIssuer = authOptons!.Issuer,
-                    ValidateAudience = true,
+                    ValidateAudience = false,
                     ValidAudience = authOptons.Audience,
                     ValidateLifetime = true,
                     IssuerSigningKey = authOptons.GetSymmetricSecurityKey(),
                     ValidateIssuerSigningKey = true,
                     ClockSkew = TimeSpan.Zero
                 };
-                options.Events = new()
+                opt.Events = new()
                 {
                     OnAuthenticationFailed = context =>
                     {

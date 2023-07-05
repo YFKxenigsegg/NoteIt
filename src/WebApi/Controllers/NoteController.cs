@@ -1,6 +1,7 @@
 ﻿using NoteIt.Application.Handlers.Notes;
 
 namespace NoteIt.WebApi.Controllers;
+[Authorize]
 public class NoteController : ApiControllerBase
 {
     [HttpPost]

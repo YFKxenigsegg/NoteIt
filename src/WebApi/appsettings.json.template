@@ -3,15 +3,11 @@
     "DefaultConnection": "Server=;Database=Note_dev;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true"
   },
   "AuthOptions": {
-    "AppPrefix": "ShortLinks.local",
-    "Issuer": "AuthServer",
-    "Audience": "*",
+    "Issuer": "https://localhost:44374",
+    "Audience": "https://localhost:44374",
     "Key": "fjXgkgMx9UvsTlcPMxTMr7oiPCUQuMVjGeXhrRYNIgI=",
     "AccessTokenExpireTimeSpanInMinutes": 20,
-    "RefreshTokenExpireTimeSpanInMinutes": 30,
-    "AllowInsecureTokenRequest": true,
-    "WindowsAuthEnabled": true,
-    "WindowsAuthServerUrl": "https://localhost:44305/"
+    "RefreshTokenExpireTimeSpanInMinutes": 30
   },
   "Logging": {
     "LogLevel": {

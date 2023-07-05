@@ -9,8 +9,8 @@ try
     builder.Services.AddApplication(builder.Configuration);
     builder.Services.AddInfrastructure(builder.Configuration);
 
-    builder.Services.AddControllers(optons =>
-        optons.Filters.Add(new ApiExceptionFilter()));
+    builder.Services.AddControllers(opt =>
+        opt.Filters.Add(new ApiExceptionFilter()));
 
     builder.Services.AddFluentValidationAutoValidation();
 

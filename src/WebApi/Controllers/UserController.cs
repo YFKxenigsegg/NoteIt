@@ -1,6 +1,7 @@
 ﻿using NoteIt.Application.Handlers.Users;
 
 namespace NoteIt.WebApi.Controllers;
+[Authorize]
 public class UserController : ApiControllerBase
 {
     [HttpPost]
@@ -11,14 +12,14 @@ public class UserController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get(GetRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Get([FromQuery] GetRequest request, CancellationToken cancellationToken)
     {
         var result = await Mediator.Send(request, cancellationToken);
         return Ok(result);
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll(GetAllRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAll([FromQuery] GetAllRequest request, CancellationToken cancellationToken)
     {
         var result = await Mediator.Send(request, cancellationToken);
         return Ok(result);
